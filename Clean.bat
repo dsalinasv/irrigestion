@@ -1,0 +1,15 @@
+del *.dcu /s
+del *.dcp /s
+del *.ddp /s
+del *.drc /s
+del *.exe /s
+del *.elf /s
+del *.map /s
+del *.vlb /s
+del *.local /s
+del *.identcache /s
+del *.optset /s
+del *.otares /s
+del *.skincfg /s
+del *.stat /s
+del *.rsm /s
