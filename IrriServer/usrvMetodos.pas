@@ -3,10 +3,9 @@ unit usrvMetodos;
 interface
 
 uses
-  System.SysUtils, System.Classes, Generics.Collections,
-  DataSnap.DSServer, DB, SqlExpr, DBXOracle, FMTBcd,
-  Provider, DBXCommon, DBClient, Data.DBXFirebird,
-  DataSnap.DSProviderDataModuleAdapter, uData;
+  System.SysUtils, System.Classes, Generics.Collections, Data.DBXFirebird,
+  Data.FMTBcd, Data.SqlExpr, Data.DB, Datasnap.DBClient, Datasnap.Provider,
+  Datasnap.DSProviderDataModuleAdapter, Data.DBXCommon, uData;
 
 type
   TsmModulo = class(TDSServerModule)
