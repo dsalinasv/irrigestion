@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, Generics.Collections,
-  DataSnap.DSServer, WideStrings, DB, SqlExpr, DBXOracle, FMTBcd,
+  DataSnap.DSServer, DB, SqlExpr, DBXOracle, FMTBcd,
   Provider, DBXCommon, DBClient, Data.DBXFirebird,
   DataSnap.DSProviderDataModuleAdapter, uData;
 
