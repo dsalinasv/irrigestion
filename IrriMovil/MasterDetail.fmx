@@ -1,0 +1,672 @@
+object MasterDetailForm: TMasterDetailForm
+  Left = 0
+  Top = 0
+  Caption = 'IrriMovil'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 3
+  object Layout1: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object DetailToolbar: TToolBar
+      Size.Width = 390.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object DetailLabel: TLabel
+        Align = Contents
+        Size.Width = 390.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'toollabel'
+        TextSettings.HorzAlign = Center
+        Text = 'Siembras'
+      end
+      object MasterButton: TSpeedButton
+        Align = Client
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'detailstoolbutton'
+        Visible = False
+      end
+      object btnUp: TSpeedButton
+        Action = LiveBindingsBindNavigatePrior1
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 289.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'arrowuptoolbuttonborderedleft'
+        Visible = True
+      end
+      object btnDown: TSpeedButton
+        Action = LiveBindingsBindNavigateNext1
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Margins.Right = 5.000000000000000000
+        Position.X = 337.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'arrowdowntoolbuttonborderedright'
+        Visible = True
+      end
+    end
+    object Layout3: TLayout
+      Align = Client
+      Locked = True
+      Size.Width = 390.000000000000000000
+      Size.Height = 255.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object grdRiegos: TGrid
+        Align = Client
+        Size.Width = 390.000000000000000000
+        Size.Height = 255.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Options = [ColumnResize, ColumnMove, ColLines, RowLines, AlwaysShowSelection, Header, HeaderClick]
+        RowCount = 0
+        RowHeight = 21.000000000000000000
+        Viewport.Width = 390.000000000000000000
+        Viewport.Height = 223.000000000000000000
+      end
+    end
+    object Layout2: TLayout
+      Align = Top
+      Margins.Top = 10.000000000000000000
+      Position.Y = 58.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 119.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object lblNombre: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Size.Width = 390.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'listboxitemlabel'
+        TextSettings.Font.Size = 18.000000000000000000
+      end
+      object lblCultivo: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 77.000000000000000000
+        Size.Width = 390.000000000000000000
+        Size.Height = 37.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'embossedlabel'
+        TextSettings.Font.Size = 15.000000000000000000
+      end
+      object lblFecha: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 40.000000000000000000
+        Size.Width = 390.000000000000000000
+        Size.Height = 37.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'embossedlabel'
+        TextSettings.Font.Size = 15.000000000000000000
+      end
+    end
+    object ToolBar1: TToolBar
+      Align = Bottom
+      Position.Y = 432.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object btnPronosticar: TSpeedButton
+        Action = actPronosticar
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Margins.Right = 5.000000000000000000
+        Position.X = 337.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'playtoolbutton'
+        Visible = True
+      end
+      object btnRecalcular: TSpeedButton
+        Action = actRecalcular
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 289.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'refreshtoolbutton'
+        Visible = True
+      end
+      object btnEliminar: TSpeedButton
+        Action = LiveBindingsBindNavigateDelete1
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 241.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'deleteitembutton'
+        Visible = True
+      end
+      object btnEditar: TSpeedButton
+        Action = actEditar
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 193.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'composetoolbutton'
+        Visible = True
+      end
+    end
+  end
+  object MultiView1: TMultiView
+    MasterButton = MasterButton
+    Size.Width = 250.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object ListView1: TListView
+      ItemAppearanceClassName = 'TImageListItemAppearance'
+      ItemEditAppearanceClassName = 'TImageListItemShowCheck'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      Align = Client
+      Size.Width = 249.000000000000000000
+      Size.Height = 432.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
+      CanSwipeDelete = False
+      OnItemClick = ListView1ItemClick
+      SearchAlwaysOnTop = False
+      object Layout3D1: TLayout3D
+        Height = 4.000000000000000000
+        Width = 5.000000000000000000
+      end
+    end
+    object MasterToolbar: TToolBar
+      Size.Width = 249.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object MasterLabel: TLabel
+        Align = Client
+        Size.Width = 249.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'toollabel'
+        TextSettings.HorzAlign = Center
+        Text = 'Parcelas'
+      end
+    end
+  end
+  object ActionList: TActionList
+    Left = 120
+    Top = 72
+    object LiveBindingsBindNavigateNext1: TFMXBindNavigateNext
+      Category = 'LiveBindings'
+      DataSource = bsSiembras
+    end
+    object LiveBindingsBindNavigatePrior1: TFMXBindNavigatePrior
+      Category = 'LiveBindings'
+      DataSource = bsSiembras
+    end
+    object actPronosticar: TAction
+      Category = 'Riegos'
+      OnExecute = actPronosticarExecute
+    end
+    object actRecalcular: TAction
+      Category = 'Riegos'
+      OnExecute = actRecalcularExecute
+      OnUpdate = actRecalcularUpdate
+    end
+    object LiveBindingsBindNavigateDelete1: TFMXBindNavigateDelete
+      Category = 'LiveBindings'
+      DataSource = bsRiegos
+    end
+    object actEditar: TAction
+      Category = 'Riegos'
+      OnExecute = actEditarExecute
+      OnUpdate = actEditarUpdate
+    end
+  end
+  object bsParcelas: TBindSourceDB
+    DataSet = cdsParcela
+    ScopeMappings = <>
+    Left = 120
+    Top = 136
+  end
+  object blListado: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 44
+    Top = 69
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = bsParcelas
+      FieldName = 'NOMBRE'
+      Control = ListView1
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkGridToDataSourcebsRiegos: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = bsRiegos
+      GridControl = grdRiegos
+      Columns = <
+        item
+          MemberName = 'INI'
+        end
+        item
+          MemberName = 'HORAS'
+        end
+        item
+          MemberName = 'GASTO'
+        end
+        item
+          MemberName = 'VOLUMEN'
+        end
+        item
+          MemberName = 'LAMINA_BRUTA'
+        end>
+    end
+    object LinkPropertyToFieldText: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = bsSiembras
+      FieldName = 'CULTIVO'
+      Component = lblCultivo
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText2: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = bsSiembras
+      FieldName = 'FECHA'
+      Component = lblFecha
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText3: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = bsSiembras
+      FieldName = 'NOMBRE'
+      Component = lblNombre
+      ComponentProperty = 'Text'
+    end
+  end
+  object bsUsuario: TBindSourceDB
+    ScopeMappings = <>
+    Left = 40
+    Top = 136
+  end
+  object bsSiembras: TBindSourceDB
+    DataSet = cdsSiembra
+    ScopeMappings = <>
+    Left = 40
+    Top = 208
+  end
+  object bsRiegos: TBindSourceDB
+    DataSet = cdsRiego
+    ScopeMappings = <>
+    Left = 120
+    Top = 208
+  end
+  object cdsRiego: TClientDataSet
+    Aggregates = <>
+    DataSetField = cdsSiembradtsRiegos
+    Params = <>
+    AfterPost = cdsAfterPost
+    AfterDelete = cdsAfterPost
+    OnCalcFields = cdsRiegoCalcFields
+    OnNewRecord = cdsNewRecord
+    Left = 120
+    Top = 408
+    object cdsRiegoID_RIEGO: TStringField
+      FieldName = 'ID_RIEGO'
+      Required = True
+      Size = 38
+    end
+    object cdsRiegoID_SIEMBRA: TStringField
+      FieldName = 'ID_SIEMBRA'
+      Size = 38
+    end
+    object cdsRiegoINI: TSQLTimeStampField
+      DisplayLabel = 'Inicio'
+      FieldName = 'INI'
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object cdsRiegoHORAS: TFloatField
+      DisplayLabel = 'Horas'
+      FieldName = 'HORAS'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsRiegoGASTO: TFloatField
+      DisplayLabel = 'Q (lps)'
+      FieldName = 'GASTO'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsRiegoAVANCE: TFloatField
+      DisplayLabel = 'Superficie (ha)'
+      FieldName = 'AVANCE'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsRiegoLAMINA: TFloatField
+      DisplayLabel = 'Ln (cm)'
+      FieldName = 'LAMINA'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsRiegoVOLUMEN: TFloatField
+      DisplayLabel = 'Vol (m'#179')'
+      FieldKind = fkCalculated
+      FieldName = 'VOLUMEN'
+      DisplayFormat = '#,##0.00'
+      Calculated = True
+    end
+    object cdsRiegoLAMINA_BRUTA: TFloatField
+      DisplayLabel = 'Lb (cn)'
+      FieldKind = fkCalculated
+      FieldName = 'LAMINA_BRUTA'
+      DisplayFormat = '#,##0.00'
+      Calculated = True
+    end
+  end
+  object cdsSiembra: TClientDataSet
+    Aggregates = <>
+    DataSetField = cdsParceladtsSiembras
+    Params = <>
+    Left = 48
+    Top = 408
+    object cdsSiembraID_SIEMBRA: TStringField
+      FieldName = 'ID_SIEMBRA'
+      Required = True
+      Size = 38
+    end
+    object cdsSiembraID_CULTIVO: TStringField
+      DisplayLabel = 'Cultivo'
+      FieldName = 'ID_CULTIVO'
+      Size = 38
+    end
+    object cdsSiembraFECHA: TSQLTimeStampField
+      DisplayLabel = 'F. de siembra'
+      FieldName = 'FECHA'
+      DisplayFormat = 'dd/mm/yy'
+    end
+    object cdsSiembraNOMBRE: TStringField
+      DisplayLabel = 'Siembra'
+      FieldName = 'NOMBRE'
+      Size = 50
+    end
+    object cdsSiembraRENDIMIENTO: TFloatField
+      DisplayLabel = 'Rendimiento'
+      FieldName = 'RENDIMIENTO'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsSiembraSUPERFICIE: TFloatField
+      DisplayLabel = 'Superficie (ha)'
+      FieldName = 'SUPERFICIE'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsSiembraID_TIPO: TStringField
+      DisplayLabel = 'Tipo'
+      FieldName = 'ID_TIPO'
+      Size = 38
+    end
+    object cdsSiembraID_PARCELA: TStringField
+      FieldName = 'ID_PARCELA'
+      Size = 38
+    end
+    object cdsSiembraID_VARIEDAD: TStringField
+      DisplayLabel = 'Variedad'
+      FieldName = 'ID_VARIEDAD'
+      Size = 38
+    end
+    object cdsSiembraGASTO: TFloatField
+      DisplayLabel = 'Gasto'
+      FieldName = 'GASTO'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsSiembraHUMEDAD: TIntegerField
+      DisplayLabel = 'Humedad'
+      FieldName = 'HUMEDAD'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsSiembraCOSECHADA: TSmallintField
+      DisplayLabel = 'Cosechada'
+      FieldName = 'COSECHADA'
+    end
+    object cdsSiembraEFICIENCIA: TFloatField
+      DisplayLabel = 'Eficiencia (%)'
+      FieldName = 'EFICIENCIA'
+    end
+    object cdsSiembraID_CICLO: TStringField
+      DisplayLabel = 'Ciclo'
+      FieldName = 'ID_CICLO'
+      Size = 38
+    end
+    object cdsSiembradtsRiegos: TDataSetField
+      FieldName = 'dtsRiegos'
+    end
+    object cdsSiembraCULTIVO: TStringField
+      FieldKind = fkLookup
+      FieldName = 'CULTIVO'
+      LookupDataSet = cdsCultivo
+      LookupKeyFields = 'ID_CULTIVO'
+      LookupResultField = 'NOMBRE'
+      KeyFields = 'ID_CULTIVO'
+      Size = 50
+      Lookup = True
+    end
+  end
+  object cdsParcela: TClientDataSet
+    Aggregates = <>
+    DataSetField = cdsUsuariodtsParcelas
+    Params = <>
+    Left = 120
+    Top = 336
+    object cdsParcelaID_PARCELA: TStringField
+      FieldName = 'ID_PARCELA'
+      Required = True
+      Size = 38
+    end
+    object cdsParcelaID_DISTRITO: TStringField
+      FieldName = 'ID_DISTRITO'
+      Size = 38
+    end
+    object cdsParcelaID_ESTACION: TStringField
+      FieldName = 'ID_ESTACION'
+      Size = 38
+    end
+    object cdsParcelaNOMBRE: TStringField
+      DisplayLabel = 'Nombre'
+      FieldName = 'NOMBRE'
+      Size = 50
+    end
+    object cdsParcelaSUPERFICIE: TFloatField
+      DisplayLabel = 'Superficie'
+      FieldName = 'SUPERFICIE'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsParcelaID_PLUVIOMETRO: TStringField
+      FieldName = 'ID_PLUVIOMETRO'
+      Size = 38
+    end
+    object cdsParcelaUBICACION: TStringField
+      DisplayLabel = 'Ubicaci'#243'n'
+      FieldName = 'UBICACION'
+      Size = 50
+    end
+    object cdsParcelaHA: TFloatField
+      DisplayLabel = 'Humedad Aprovechable'
+      FieldName = 'HA'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsParcelaID_USUARIO: TStringField
+      FieldName = 'ID_USUARIO'
+      Size = 38
+    end
+    object cdsParceladtsSiembras: TDataSetField
+      FieldName = 'dtsSiembras'
+    end
+  end
+  object cdsCultivo: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCultivo'
+    RemoteServer = dmData.dspConexion
+    Left = 120
+    Top = 264
+    object cdsCultivoID_CULTIVO: TStringField
+      FieldName = 'ID_CULTIVO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      Size = 38
+    end
+    object cdsCultivoNOMBRE: TStringField
+      DisplayLabel = 'Nombre'
+      FieldName = 'NOMBRE'
+      Size = 50
+    end
+  end
+  object cdsUsuario: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'ID_USUARIO'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspUsuario'
+    RemoteServer = dmData.dspConexion
+    Left = 48
+    Top = 336
+    object cdsUsuarioID_USUARIO: TStringField
+      DisplayLabel = 'Clave'
+      FieldName = 'ID_USUARIO'
+      Required = True
+      Size = 38
+    end
+    object cdsUsuarioNOMBRE: TStringField
+      DisplayLabel = 'Nombre'
+      FieldName = 'NOMBRE'
+      Size = 30
+    end
+    object cdsUsuarioLOGIN: TStringField
+      DisplayLabel = 'Login'
+      FieldName = 'LOGIN'
+      Size = 30
+    end
+    object cdsUsuarioPASSWORD: TStringField
+      DisplayLabel = 'Contrase'#241'a'
+      FieldName = 'PASSWORD'
+      Size = 250
+    end
+    object cdsUsuarioACTIVO: TIntegerField
+      DisplayLabel = 'Activo'
+      FieldName = 'ACTIVO'
+    end
+    object cdsUsuariodtsParcelas: TDataSetField
+      FieldName = 'dtsParcelas'
+    end
+    object cdsUsuariodtsPluviometros: TDataSetField
+      FieldName = 'dtsPluviometros'
+    end
+  end
+  object ssmLamina: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'idSiembra'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'dias'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDataSet
+        Name = 'ReturnParameter'
+        ParamType = ptResult
+      end>
+    SQLConnection = dmData.cntDatos
+    ServerMethodName = 'TsmModulo.GetLamina'
+    Left = 312
+    Top = 128
+  end
+  object dspLamina: TDataSetProvider
+    DataSet = ssmLamina
+    Left = 320
+    Top = 136
+  end
+  object cdsLamina: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'idSiembra'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'dias'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDataSet
+        Name = 'ReturnParameter'
+        ParamType = ptResult
+      end>
+    ProviderName = 'dspLamina'
+    Left = 328
+    Top = 144
+    object cdsLaminaNUMERO_RIEGO: TIntegerField
+      FieldName = 'NUMERO_RIEGO'
+      Required = True
+    end
+    object cdsLaminaFECHA_RIEGO: TDateTimeField
+      FieldName = 'FECHA_RIEGO'
+      Required = True
+    end
+    object cdsLaminaLAMINA: TFloatField
+      FieldName = 'LAMINA'
+      Required = True
+    end
+    object cdsLaminaDGCA: TFloatField
+      FieldName = 'DGCA'
+      Required = True
+    end
+    object cdsLaminaETAPA: TStringField
+      FieldName = 'ETAPA'
+      Required = True
+      Size = 51
+    end
+    object cdsLaminaMENSAJE: TStringField
+      FieldName = 'MENSAJE'
+      Required = True
+      Size = 256
+    end
+  end
+end

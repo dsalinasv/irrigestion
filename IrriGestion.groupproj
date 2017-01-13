@@ -1,0 +1,148 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{229C0003-3AC9-4774-A7B3-6BA19AEC2F3F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="IrriClient\IrriAdmin.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="IrriClient\IrriClient.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="IrriMovil\IrriMovil.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="IrriClient\IrriPlan.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="IrriServer\IrriServer.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="IrriAdmin">
+        <MSBuild Projects="IrriClient\IrriAdmin.dproj"/>
+    </Target>
+    <Target Name="IrriAdmin:Clean">
+        <MSBuild Projects="IrriClient\IrriAdmin.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IrriAdmin:Make">
+        <MSBuild Projects="IrriClient\IrriAdmin.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="IrriClient">
+        <MSBuild Projects="IrriClient\IrriClient.dproj"/>
+    </Target>
+    <Target Name="IrriClient:Clean">
+        <MSBuild Projects="IrriClient\IrriClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IrriClient:Make">
+        <MSBuild Projects="IrriClient\IrriClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="IrriMovil">
+        <MSBuild Projects="IrriMovil\IrriMovil.dproj"/>
+    </Target>
+    <Target Name="IrriMovil:Clean">
+        <MSBuild Projects="IrriMovil\IrriMovil.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IrriMovil:Make">
+        <MSBuild Projects="IrriMovil\IrriMovil.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="IrriPlan">
+        <MSBuild Projects="IrriClient\IrriPlan.dproj"/>
+    </Target>
+    <Target Name="IrriPlan:Clean">
+        <MSBuild Projects="IrriClient\IrriPlan.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IrriPlan:Make">
+        <MSBuild Projects="IrriClient\IrriPlan.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="IrriServer">
+        <MSBuild Projects="IrriServer\IrriServer.dproj"/>
+    </Target>
+    <Target Name="IrriServer:Clean">
+        <MSBuild Projects="IrriServer\IrriServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IrriServer:Make">
+        <MSBuild Projects="IrriServer\IrriServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="IrriAdmin;IrriClient;IrriMovil;IrriPlan;IrriServer"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="IrriAdmin:Clean;IrriClient:Clean;IrriMovil:Clean;IrriPlan:Clean;IrriServer:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="IrriAdmin:Make;IrriClient:Make;IrriMovil:Make;IrriPlan:Make;IrriServer:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+    <ItemGroup Condition="'$(BuildGroup)'=='Win64Release'">
+        <BuildGroupProject Include="IrriServer\IrriServer.dproj">
+            <ProjectGuid>{9D53CD90-9FFD-4DC7-97F5-7D6B4865EA8E}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="IrriClient\IrriClient.dproj">
+            <ProjectGuid>{35F41F18-3E73-4EF6-A869-9F492C4DD627}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="IrriClient\IrriAdmin.dproj">
+            <ProjectGuid>{8143EBB7-0A06-404D-9A51-C544C7C42CAA}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="IrriMovil\IrriMovil.dproj">
+            <ProjectGuid>{90178328-D7D3-4930-9443-ED5D3E6C02CC}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="IrriClient\IrriPlan.dproj">
+            <ProjectGuid>{A2F5643A-7390-4534-BDBC-DDCF85D14E0B}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+    </ItemGroup>
+    <ItemGroup Condition="'$(BuildGroup)'=='Win32Release'">
+        <BuildGroupProject Include="IrriServer\IrriServer.dproj">
+            <ProjectGuid>{9D53CD90-9FFD-4DC7-97F5-7D6B4865EA8E}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="IrriClient\IrriClient.dproj">
+            <ProjectGuid>{35F41F18-3E73-4EF6-A869-9F492C4DD627}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="IrriClient\IrriAdmin.dproj">
+            <ProjectGuid>{8143EBB7-0A06-404D-9A51-C544C7C42CAA}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="IrriMovil\IrriMovil.dproj">
+            <ProjectGuid>{90178328-D7D3-4930-9443-ED5D3E6C02CC}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="IrriClient\IrriPlan.dproj">
+            <ProjectGuid>{A2F5643A-7390-4534-BDBC-DDCF85D14E0B}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+    </ItemGroup>
+</Project>

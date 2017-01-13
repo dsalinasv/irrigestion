@@ -1,0 +1,306 @@
+unit udmDataAdmin;
+
+interface
+
+uses
+  Forms, Windows, SysUtils, Classes, WideStrings, DbxDatasnap, DBClient,
+  DSConnect, DB, SqlExpr, IOUtils, IPPeerClient, Data.DBXCommon,
+  Data.DbxHTTPLayer, Data.FMTBcd, cxLocalization, Vcl.ExtCtrls, cxGrid,
+  cxLookAndFeels, dxSkinsForm, Vcl.Dialogs, dxSkinsCore, dxSkinOffice2007Blue,
+  cxClasses;
+
+type
+  TdmData = class(TDataModule)
+    cntConexion: TSQLConnection;
+    dspConexion: TDSProviderConnection;
+    cxLocalizer: TcxLocalizer;
+    dsCiclo: TDataSource;
+    cdsCiclo: TClientDataSet;
+    cdsCicloID_CICLO: TStringField;
+    cdsCicloNOMBRE: TStringField;
+    dsSuelo: TDataSource;
+    cdsSuelo: TClientDataSet;
+    cdsSueloID_SUELO: TStringField;
+    cdsSueloARCILLA: TFloatField;
+    cdsSueloARENA: TFloatField;
+    cdsSueloNOMBRE: TStringField;
+    cdsSueloMO: TFloatField;
+    cdsSueloDA: TFloatField;
+    cdsSueloLIMO: TFloatField;
+    dsSubsistema: TDataSource;
+    cdsSubsistema: TClientDataSet;
+    dsSistema: TDataSource;
+    cdsSistema: TClientDataSet;
+    cdsSistemaID_SISTEMA: TStringField;
+    cdsSistemaNOMBRE: TStringField;
+    cdsSistemadtsSubsistemas: TDataSetField;
+    cdsSubsistemaID_SUBSISTEMA: TStringField;
+    cdsSubsistemaNOMBRE: TStringField;
+    cdsSubsistemaPROMEDIO: TFloatField;
+    cdsSubsistemaMAXIMO: TFloatField;
+    cdsSubsistemaUD: TFloatField;
+    cdsSubsistemaID_SISTEMA: TStringField;
+    dsHistorico: TDataSource;
+    cdsHistorico: TClientDataSet;
+    dsEstado: TDataSource;
+    cdsEstado: TClientDataSet;
+    cdsEstadoNOMBRE: TStringField;
+    cdsEstadodtsEstaciones: TDataSetField;
+    dsEstacion: TDataSource;
+    cdsEstacion: TClientDataSet;
+    cdsEstacionID_ESTACION: TStringField;
+    cdsEstacionID_DISTRITO: TStringField;
+    cdsEstacionNOMBRE: TStringField;
+    cdsEstaciondtsHistoricos: TDataSetField;
+    cdsHistoricoID_ESTACION: TStringField;
+    cdsHistoricoFECHA: TSQLTimeStampField;
+    cdsHistoricoETO: TFloatField;
+    cdsHistoricoTEMP: TFloatField;
+    dsFenologia: TDataSource;
+    dsVariedad: TDataSource;
+    cdsVariedad: TClientDataSet;
+    dsTipo: TDataSource;
+    cdsTipo: TClientDataSet;
+    cdsFenologia: TClientDataSet;
+    dsCultivo: TDataSource;
+    cdsCultivo: TClientDataSet;
+    cdsCultivoID_CULTIVO: TStringField;
+    cdsCultivoNOMBRE: TStringField;
+    cdsCultivodtsTipos: TDataSetField;
+    cdsTipoID_TIPO: TStringField;
+    cdsTipoORDEN: TIntegerField;
+    cdsTipoID_SISTEMA: TStringField;
+    cdsTipoNOMBRE: TStringField;
+    cdsTipoTUMIN: TFloatField;
+    cdsTipoTUMAX: TFloatField;
+    cdsTipoKMAX: TFloatField;
+    cdsTipoXKMAX: TFloatField;
+    cdsTipoPRO: TFloatField;
+    cdsTipoPRMAX: TFloatField;
+    cdsTipoALPHA0: TFloatField;
+    cdsTipoALPHA1: TFloatField;
+    cdsTipoALPHA2: TFloatField;
+    cdsTipoALPHA3: TFloatField;
+    cdsTipoALPHA4: TFloatField;
+    cdsTipoID_CULTIVO: TStringField;
+    cdsTipodtsVariedades: TDataSetField;
+    cdsTipodtsFenologias: TDataSetField;
+    cdsVariedadID_VARIEDAD: TStringField;
+    cdsVariedadNOMBRE: TStringField;
+    cdsVariedadID_TIPO: TStringField;
+    cdsFenologiaID_FENOLOGIA: TStringField;
+    cdsFenologiaORDEN: TIntegerField;
+    cdsFenologiaNOMBRE: TStringField;
+    cdsFenologiaCLAVE: TStringField;
+    cdsFenologiaDGC: TFloatField;
+    cdsFenologiaID_TIPO: TStringField;
+    cdsTipoKCO: TFloatField;
+    dxSkinController: TdxSkinController;
+    opnDialog: TOpenDialog;
+    dsUsuario: TDataSource;
+    cdsUsuario: TClientDataSet;
+    sdExcel: TSaveDialog;
+    dsConsultaGeneral: TDataSource;
+    cdsConsultaGeneral: TClientDataSet;
+    cdsTipoALPHA5: TFloatField;
+    cdsConsultaGeneralUSUSARIO: TStringField;
+    cdsConsultaGeneralPARCELA: TStringField;
+    cdsConsultaGeneralESTACION: TStringField;
+    cdsConsultaGeneralSIEMBRA: TStringField;
+    cdsConsultaGeneralFECHA: TSQLTimeStampField;
+    cdsConsultaGeneralCULTIVO: TStringField;
+    cdsConsultaGeneralCICLO: TStringField;
+    cdsConsultaGeneralVARIEDAD: TStringField;
+    cdsConsultaGeneralTIPO: TStringField;
+    cdsConsultaGeneralINI: TSQLTimeStampField;
+    cdsConsultaGeneralHORAS: TFloatField;
+    cdsConsultaGeneralAVANCE: TFloatField;
+    cdsConsultaGeneralGASTO: TFloatField;
+    cdsConsultaGeneralLAMINA: TFloatField;
+    cdsConsultaGeneralRENDIMIENTO: TFloatField;
+    cdsConsultaGeneralVOLUMEN: TFloatField;
+    cdsConsultaGeneralLAMINA_BRUTA: TFloatField;
+    cdsConsultaGeneralEA: TFloatField;
+    cdsConsultaGeneralProdAgua: TFloatField;
+    cdsUsuarioID_USUARIO: TStringField;
+    cdsUsuarioNOMBRE: TStringField;
+    cdsUsuarioLOGIN: TStringField;
+    cdsUsuarioPASSWORD: TStringField;
+    cdsUsuarioACTIVO: TIntegerField;
+    cdsConsultaGeneralUBICACION: TStringField;
+    procedure AsignarEventos;
+    procedure cdsNewRecord(DataSet: TDataSet);
+    procedure cdsAfterPost(DataSet: TDataSet);
+    procedure cdsReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure DataModuleCreate(Sender: TObject);
+    procedure cdsSueloCalcFields(DataSet: TDataSet);
+    procedure cdsConsultaGeneralCalcFields(DataSet: TDataSet);
+  private
+    FNombre: String;
+    { Private declarations }
+    function GetId: String;
+    procedure SetNombre(const Value: String);
+    procedure CargarDatos;
+  public
+    { Public declarations }
+    procedure Exportar(Grid: TcxGrid);
+  published
+    property Nombre: String read FNombre write SetNombre;
+  end;
+
+var
+  dmData: TdmData;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  ufrmSplash, cxGridExportLink, cxGraphics, ufrmMainAdmin, Vcl.Controls,
+  ApplicationVersionHelper;
+
+function TdmData.GetId: String;
+var
+  Guid : TGuid;
+begin
+  CreateGuid(Guid);
+  Exit(GuidToString(Guid))
+end;
+
+procedure TdmData.AsignarEventos;
+var
+  i: integer;
+begin
+  for i:= 0 to Pred(ComponentCount) do
+  begin
+    if Components[i] is TClientDataset then
+    begin
+      //(Components[i] as TClientDataSet).OnNewRecord:= cdsNewRecord;
+      (Components[i] as TClientDataSet).OnReconcileError:= cdsReconcileError;
+    end;
+  end;
+end;
+
+procedure TdmData.cdsConsultaGeneralCalcFields(DataSet: TDataSet);
+begin
+  if (not cdsConsultaGeneralINI.IsNull) and
+    (not cdsConsultaGeneralHORAS.IsNull) then
+  begin
+    if (not cdsConsultaGeneralGASTO.IsNull) and
+      (not cdsConsultaGeneralAVANCE.IsNull) and
+      (cdsConsultaGeneralAVANCE.Value > 0) then
+    begin
+      cdsConsultaGeneralVOLUMEN.Value:= cdsConsultaGeneralGASTO.Value *
+        cdsConsultaGeneralHORAS.Value * 3.6;
+      cdsConsultaGeneralLAMINA_BRUTA.Value:= cdsConsultaGeneralVOLUMEN.Value /
+        (cdsConsultaGeneralAVANCE.Value * 100);
+    end;
+  end;
+  if (cdsConsultaGeneralLAMINA_BRUTA.Value>0) then
+  begin
+    cdsConsultaGeneralEA.Value:=
+      (cdsConsultaGeneralLAMINA.Value /
+      cdsConsultaGeneralLAMINA_BRUTA.Value) * 100;
+  end;
+  if (cdsConsultaGeneralVOLUMEN.Value > 0) and (cdsConsultaGeneralAVANCE.Value > 0) then
+    cdsConsultaGeneralProdAgua.Value:= cdsConsultaGeneralRENDIMIENTO.Value * 1000 /
+     (cdsConsultaGeneralVOLUMEN.Value / cdsConsultaGeneralAVANCE.Value)
+  else
+    cdsConsultaGeneralProdAgua.Value:= 0;
+end;
+
+procedure TdmData.cdsNewRecord(DataSet: TDataSet);
+begin
+  (DataSet as TClientDataSet).FieldByName(
+    StringReplace(DataSet.Name, 'cds', 'ID_', [])).AsString := GetId;
+end;
+
+procedure TdmData.cdsAfterPost(DataSet: TDataSet);
+begin
+  (DataSet as TClientDataSet).ApplyUpdates(0)
+end;
+
+procedure TdmData.cdsReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+begin
+  inherited;
+  Application.MessageBox(PChar(E.Message),'Error',MB_OK + MB_ICONERROR);
+end;
+
+procedure TdmData.cdsSueloCalcFields(DataSet: TDataSet);
+begin
+  if (not cdsSueloARCILLA.IsNull) and (not cdsSueloARENA.IsNull) then
+    cdsSueloLIMO.Value:= 100 - (cdsSueloARCILLA.Value + cdsSueloARENA.Value)
+  else
+    cdsSueloLIMO.Value:= 0
+end;
+
+procedure TdmData.DataModuleCreate(Sender: TObject);
+const
+  HOST = 'localhost';
+begin
+  try
+    frmSplash:= TfrmSplash.Create(Application);
+    if frmSplash.ElegirAuto(ParamStr(1)) then
+    begin
+      Nombre:= ParamStr(1);
+    end
+    else
+    begin
+      Nombre:= frmSplash.ElegirManual;
+    end;
+    frmSplash.Show;
+    frmSplash.Load:= 'Cargando idioma español';
+    cxLocalizer.Active:= true;
+    cxLocalizer.Locale:= 1034;
+    AsignarEventos;
+    cntConexion.Params.Values['HostName']:= HOST;
+    cntConexion.Params.Values['ServerConnection']:= 'TsmModulo.GetConnection' +
+       Nombre;
+    frmSplash.Load:= 'Conectando al servidor ' + cntConexion.Params.Values['HostName'];
+    cntConexion.Open;
+    Screen.Cursor := crHourglass;
+    CargarDatos;
+    frmSplash.Free;
+    Screen.Cursor := crDefault;
+  except
+    on E : Exception do
+    begin
+      frmSplash.Load:= 'Imposible conectar con el servidor ' + E.Message;
+      Sleep(3000);
+      Application.Terminate
+    end;
+  end;
+end;
+
+procedure TdmData.Exportar(Grid: TcxGrid);
+begin
+  with sdExcel do
+  begin
+    if Execute then
+      ExportGridToExcel(FileName, Grid, true, true, false);
+  end;
+end;
+
+procedure TdmData.CargarDatos;
+procedure Abrir(DataSet: TDataSet);
+begin
+  DataSet.Open;
+end;
+begin
+  Abrir(cdsUsuario);
+  Abrir(cdsCiclo);
+  Abrir(cdsSuelo);
+  Abrir(cdsSistema);
+  Abrir(cdsCultivo);
+end;
+
+procedure TdmData.SetNombre(const Value: String);
+begin
+  FNombre := Value;
+end;
+
+end.
