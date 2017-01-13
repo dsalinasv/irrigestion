@@ -38,7 +38,7 @@ type
 
 implementation
 
-uses DateUtils, Math, SysUtils, uLog;
+uses System.DateUtils, System.Math, System.SysUtils, uLog;
 
 { TTemp }
 
