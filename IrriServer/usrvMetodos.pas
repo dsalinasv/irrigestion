@@ -128,10 +128,6 @@ type
     dtsParcelasID_ESTACION: TStringField;
     cdsData: TClientDataSet;
     dtsEstadosNOMBRE: TStringField;
-    dtsHistoricosID_ESTACION: TStringField;
-    dtsHistoricosFECHA: TSQLTimeStampField;
-    dtsHistoricosETO: TFloatField;
-    dtsHistoricosTEMP: TFloatField;
     dtsRiegosID_SIEMBRA: TStringField;
     dtsRiegosINI: TSQLTimeStampField;
     dtsRiegosHORAS: TFloatField;
@@ -144,7 +140,6 @@ type
     dtsEstacion: TSQLDataSet;
     dspEstado: TDataSetProvider;
     dtsEstado: TSQLDataSet;
-    StringField5: TStringField;
     dsCultivo: TDataSource;
     dsTipo: TDataSource;
     dspTipo: TDataSetProvider;
@@ -327,6 +322,11 @@ type
     cdsClimaETO: TFloatField;
     qryAvgETO: TFloatField;
     qryAvgTMED: TFloatField;
+    dtsEstadoNOMBRE: TStringField;
+    dtsHistoricosID_ESTACION: TIntegerField;
+    dtsHistoricosFECHA: TDateField;
+    dtsHistoricosTMED: TFloatField;
+    dtsHistoricosETO: TFloatField;
   private
     function GetDgc(temp, tmin, tmax: double): double;
     function GetEtapa(idTipo: string; dgca: double): String;

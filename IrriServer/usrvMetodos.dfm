@@ -936,23 +936,19 @@ object smModulo: TsmModulo
     SQLConnection = cntShared
     Left = 608
     Top = 144
-    object dtsHistoricosID_ESTACION: TStringField
+    object dtsHistoricosID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Size = 38
+      Required = True
     end
-    object dtsHistoricosFECHA: TSQLTimeStampField
-      DisplayLabel = 'Fecha'
+    object dtsHistoricosFECHA: TDateField
       FieldName = 'FECHA'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object dtsHistoricosTMED: TFloatField
+      FieldName = 'TMED'
     end
     object dtsHistoricosETO: TFloatField
-      DisplayLabel = 'Et0'
       FieldName = 'ETO'
-    end
-    object dtsHistoricosTEMP: TFloatField
-      DisplayLabel = 'Temp'
-      FieldName = 'TEMP'
     end
   end
   object dspHistoricos: TDataSetProvider
@@ -1091,8 +1087,7 @@ object smModulo: TsmModulo
       FieldName = 'ID_ESTADO'
       Required = True
     end
-    object StringField5: TStringField
-      DisplayLabel = 'Nombre'
+    object dtsEstadoNOMBRE: TStringField
       FieldName = 'NOMBRE'
     end
   end
