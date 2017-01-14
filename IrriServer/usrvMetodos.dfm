@@ -67,8 +67,8 @@ object smModulo: TsmModulo
       Required = True
       Size = 38
     end
-    object dtsParcelasID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
+    object dtsParcelasID_ESTADO: TStringField
+      FieldName = 'ID_ESTADO'
       Size = 38
     end
     object dtsParcelasID_ESTACION: TStringField
@@ -887,8 +887,8 @@ object smModulo: TsmModulo
   end
   object dtsEstaciones: TSQLDataSet
     CommandText = 
-      'select * from ESTACIONES where ID_DISTRITO = :ID_DISTRITO order ' +
-      'by NOMBRE'
+      'select * from ESTACIONES where ID_ESTADO = :ID_ESTADO order by N' +
+      'OMBRE'
     DataSource = dsEstados
     MaxBlobSize = -1
     Params = <>
@@ -901,8 +901,8 @@ object smModulo: TsmModulo
       Required = True
       Size = 38
     end
-    object dtsEstacionesID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
+    object dtsEstacionesID_ESTADO: TStringField
+      FieldName = 'ID_ESTADO'
       Size = 38
     end
     object dtsEstacionesNOMBRE: TStringField
@@ -1042,8 +1042,8 @@ object smModulo: TsmModulo
   end
   object dtsEstacion: TSQLDataSet
     CommandText = 
-      'select * from ESTACIONES where ID_DISTRITO = :ID_DISTRITO order ' +
-      'by NOMBRE AND ACTIVO = 1'
+      'select * from ESTACIONES where ID_ESTADO = :ID_ESTADO order by N' +
+      'OMBRE AND ACTIVO = 1'
     DataSource = dsEstado
     MaxBlobSize = -1
     Params = <>
@@ -1057,7 +1057,7 @@ object smModulo: TsmModulo
       Size = 38
     end
     object StringField2: TStringField
-      FieldName = 'ID_DISTRITO'
+      FieldName = 'ID_ESTADO'
       Size = 38
     end
     object StringField3: TStringField
@@ -1693,8 +1693,8 @@ object smModulo: TsmModulo
       Required = True
       Size = 38
     end
-    object qryParcelaID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
+    object qryParcelaID_ESTADO: TStringField
+      FieldName = 'ID_ESTADO'
       Size = 38
     end
     object qryParcelaID_ESTACION: TStringField
@@ -1742,8 +1742,8 @@ object smModulo: TsmModulo
       Required = True
       Size = 38
     end
-    object qryEstacionID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
+    object qryEstacionID_ESTADO: TStringField
+      FieldName = 'ID_ESTADO'
       Size = 38
     end
     object qryEstacionNOMBRE: TStringField

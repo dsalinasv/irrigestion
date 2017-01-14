@@ -126,11 +126,9 @@ type
     dtsSiembrasID_CICLO: TStringField;
     dtsRiegosID_RIEGO: TStringField;
     dtsParcelasID_ESTACION: TStringField;
-    dtsParcelasID_DISTRITO: TStringField;
     cdsData: TClientDataSet;
     dtsEstadosNOMBRE: TStringField;
     dtsEstacionesID_ESTACION: TStringField;
-    dtsEstacionesID_DISTRITO: TStringField;
     dtsEstacionesNOMBRE: TStringField;
     dtsHistoricosID_ESTACION: TStringField;
     dtsHistoricosFECHA: TSQLTimeStampField;
@@ -224,14 +222,12 @@ type
     qrySiembraCOSECHADA: TSmallintField;
     qrySiembraID_CICLO: TStringField;
     qryParcelaID_PARCELA: TStringField;
-    qryParcelaID_DISTRITO: TStringField;
     qryParcelaID_ESTACION: TStringField;
     qryParcelaNOMBRE: TStringField;
     qryParcelaSUPERFICIE: TFloatField;
     qryParcelaID_PLUVIOMETRO: TStringField;
     qryParcelaUBICACION: TStringField;
     qryEstacionID_ESTACION: TStringField;
-    qryEstacionID_DISTRITO: TStringField;
     qryEstacionNOMBRE: TStringField;
     qryHistoricoID_ESTACION: TStringField;
     qryHistoricoFECHA: TSQLTimeStampField;
