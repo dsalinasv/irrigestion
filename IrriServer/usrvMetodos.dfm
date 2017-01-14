@@ -921,43 +921,6 @@ object smModulo: TsmModulo
     Left = 616
     Top = 88
   end
-  object dtsHistoricos: TSQLDataSet
-    CommandText = 
-      'select * from HISTORICOS where ID_ESTACION = :ID_ESTACION order ' +
-      'by FECHA'
-    DataSource = dsEstaciones
-    MaxBlobSize = -1
-    Params = <
-      item
-        DataType = ftString
-        Name = 'ID_ESTACION'
-        ParamType = ptInput
-      end>
-    SQLConnection = cntShared
-    Left = 608
-    Top = 144
-    object dtsHistoricosID_ESTACION: TIntegerField
-      FieldName = 'ID_ESTACION'
-      Required = True
-    end
-    object dtsHistoricosFECHA: TDateField
-      FieldName = 'FECHA'
-      Required = True
-    end
-    object dtsHistoricosTMED: TFloatField
-      FieldName = 'TMED'
-    end
-    object dtsHistoricosETO: TFloatField
-      FieldName = 'ETO'
-    end
-  end
-  object dspHistoricos: TDataSetProvider
-    DataSet = dtsHistoricos
-    Options = [poIncFieldProps, poCascadeDeletes, poCascadeUpdates, poPropogateChanges, poAllowCommandText, poUseQuoteChar]
-    UpdateMode = upWhereChanged
-    Left = 616
-    Top = 152
-  end
   object dsEstados: TDataSource
     DataSet = dtsEstados
     Left = 624

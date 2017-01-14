@@ -102,8 +102,6 @@ type
     dsParcelas: TDataSource;
     dtsEstaciones: TSQLDataSet;
     dspEstaciones: TDataSetProvider;
-    dtsHistoricos: TSQLDataSet;
-    dspHistoricos: TDataSetProvider;
     dsEstados: TDataSource;
     dsEstaciones: TDataSource;
     dtsParcelasID_PARCELA: TStringField;
@@ -323,10 +321,6 @@ type
     qryAvgETO: TFloatField;
     qryAvgTMED: TFloatField;
     dtsEstadoNOMBRE: TStringField;
-    dtsHistoricosID_ESTACION: TIntegerField;
-    dtsHistoricosFECHA: TDateField;
-    dtsHistoricosTMED: TFloatField;
-    dtsHistoricosETO: TFloatField;
   private
     function GetDgc(temp, tmin, tmax: double): double;
     function GetEtapa(idTipo: string; dgca: double): String;
