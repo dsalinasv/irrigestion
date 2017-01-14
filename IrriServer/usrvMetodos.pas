@@ -128,7 +128,6 @@ type
     dtsParcelasID_ESTACION: TStringField;
     dtsParcelasID_DISTRITO: TStringField;
     cdsData: TClientDataSet;
-    dtsEstadosID_DISTRITO: TStringField;
     dtsEstadosNOMBRE: TStringField;
     dtsEstacionesID_ESTACION: TStringField;
     dtsEstacionesID_DISTRITO: TStringField;
@@ -152,7 +151,6 @@ type
     StringField3: TStringField;
     dspEstado: TDataSetProvider;
     dtsEstado: TSQLDataSet;
-    StringField4: TStringField;
     StringField5: TStringField;
     dsCultivo: TDataSource;
     dsTipo: TDataSource;
@@ -324,6 +322,8 @@ type
     dtsTiposALPHA5: TFloatField;
     dtsTiposID_CULTIVO: TStringField;
     cntShared: TSQLConnection;
+    dtsEstadosID_ESTADO: TSmallintField;
+    dtsEstadoID_ESTADO: TSmallintField;
   private
     function GetDgc(temp, tmin, tmax: double): double;
     function GetEtapa(idTipo: string; dgca: double): String;

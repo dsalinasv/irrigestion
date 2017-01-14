@@ -55,16 +55,13 @@ object smModulo: TsmModulo
     SQLConnection = cntShared
     Left = 608
     Top = 16
-    object dtsEstadosID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    object dtsEstadosID_ESTADO: TSmallintField
+      FieldName = 'ID_ESTADO'
       Required = True
-      Size = 38
     end
     object dtsEstadosNOMBRE: TStringField
       DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
-      Size = 50
     end
   end
   object dspEstados: TDataSetProvider
@@ -1107,16 +1104,13 @@ object smModulo: TsmModulo
     SQLConnection = cntShared
     Left = 608
     Top = 216
-    object StringField4: TStringField
-      FieldName = 'ID_DISTRITO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    object dtsEstadoID_ESTADO: TSmallintField
+      FieldName = 'ID_ESTADO'
       Required = True
-      Size = 38
     end
     object StringField5: TStringField
       DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
-      Size = 50
     end
   end
   object dsCultivo: TDataSource
@@ -1986,6 +1980,7 @@ object smModulo: TsmModulo
       'WaitOnLocks=True'
       'IsolationLevel=ReadCommitted'
       'Trim Char=False')
+    Connected = True
     Left = 544
     Top = 256
   end
