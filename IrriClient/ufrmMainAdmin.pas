@@ -35,7 +35,7 @@ type
     cxTabSheet1: TcxTabSheet;
     ScrollBox1: TScrollBox;
     evaf: TcxImage;
-    actDistritos: TAction;
+    actEstados: TAction;
     dxBarLargeButton28: TdxBarLargeButton;
     actConsultaGeneral: TAction;
     dxBarLargeButton8: TdxBarLargeButton;

@@ -32,7 +32,9 @@ object smModulo: TsmModulo
     Left = 608
     Top = 16
     object dtsEstadosID_ESTADO: TSmallintField
+      DisplayLabel = 'Clave'
       FieldName = 'ID_ESTADO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtsEstadosNOMBRE: TStringField
@@ -376,6 +378,7 @@ object smModulo: TsmModulo
     object dtsUsuariosID_USUARIO: TStringField
       DisplayLabel = 'Clave'
       FieldName = 'ID_USUARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       Size = 38
     end
@@ -900,17 +903,21 @@ object smModulo: TsmModulo
     Left = 608
     Top = 80
     object dtsEstacionesID_ESTACION: TIntegerField
+      DisplayLabel = 'Clave'
       FieldName = 'ID_ESTACION'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtsEstacionesID_ESTADO: TSmallintField
       FieldName = 'ID_ESTADO'
     end
     object dtsEstacionesNOMBRE: TStringField
+      DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
       Size = 50
     end
     object dtsEstacionesACTIVO: TSmallintField
+      DisplayLabel = 'Activo'
       FieldName = 'ACTIVO'
     end
   end
@@ -1018,17 +1025,21 @@ object smModulo: TsmModulo
     Left = 608
     Top = 280
     object dtsEstacionID_ESTACION: TIntegerField
+      DisplayLabel = 'Clave'
       FieldName = 'ID_ESTACION'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtsEstacionID_ESTADO: TSmallintField
       FieldName = 'ID_ESTADO'
     end
     object dtsEstacionNOMBRE: TStringField
+      DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
       Size = 50
     end
     object dtsEstacionACTIVO: TSmallintField
+      DisplayLabel = 'Activo'
       FieldName = 'ACTIVO'
     end
   end
@@ -1047,10 +1058,13 @@ object smModulo: TsmModulo
     Left = 608
     Top = 216
     object dtsEstadoID_ESTADO: TSmallintField
+      DisplayLabel = 'Clave'
       FieldName = 'ID_ESTADO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtsEstadoNOMBRE: TStringField
+      DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
     end
   end
@@ -1445,17 +1459,22 @@ object smModulo: TsmModulo
     Left = 168
     Top = 192
     object qryClimaID_ESTACION: TIntegerField
+      DisplayLabel = 'Clave'
       FieldName = 'ID_ESTACION'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object qryClimaFECHA: TDateField
+      DisplayLabel = 'Fecha'
       FieldName = 'FECHA'
       Required = True
     end
     object qryClimaTMED: TFloatField
+      DisplayLabel = 'Temp. '#176'C'
       FieldName = 'TMED'
     end
     object qryClimaETO: TFloatField
+      DisplayLabel = 'Et0'
       FieldName = 'ETO'
     end
   end
@@ -1654,6 +1673,7 @@ object smModulo: TsmModulo
     Top = 384
     object qryParcelaID_PARCELA: TStringField
       FieldName = 'ID_PARCELA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       Size = 38
     end
@@ -1702,6 +1722,7 @@ object smModulo: TsmModulo
     Top = 440
     object qryEstacionID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object qryEstacionID_ESTADO: TSmallintField
@@ -1736,17 +1757,22 @@ object smModulo: TsmModulo
     Left = 168
     Top = 496
     object qryHistoricoID_ESTACION: TIntegerField
+      DisplayLabel = 'Clave'
       FieldName = 'ID_ESTACION'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object qryHistoricoFECHA: TDateField
+      DisplayLabel = 'Fecha'
       FieldName = 'FECHA'
       Required = True
     end
     object qryHistoricoTMED: TFloatField
+      DisplayLabel = 'Temp. '#176'C'
       FieldName = 'TMED'
     end
     object qryHistoricoETO: TFloatField
+      DisplayLabel = 'Et0'
       FieldName = 'ETO'
     end
   end
@@ -1870,6 +1896,7 @@ object smModulo: TsmModulo
     object qryUsuarioID_USUARIO: TStringField
       DisplayLabel = 'Clave'
       FieldName = 'ID_USUARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       Size = 38
     end

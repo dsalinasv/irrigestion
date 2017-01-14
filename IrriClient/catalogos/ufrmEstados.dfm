@@ -1,4 +1,4 @@
-inherited frmDistritos: TfrmDistritos
+inherited frmEstados: TfrmEstados
   Caption = 'Estados'
   ClientHeight = 585
   ClientWidth = 878
@@ -10,7 +10,6 @@ inherited frmDistritos: TfrmDistritos
   inherited pgcDatos: TcxPageControl
     Width = 878
     Height = 463
-    Properties.ActivePage = tabDatos
     LookAndFeel.SkinName = ''
     ExplicitWidth = 878
     ExplicitHeight = 463
@@ -51,6 +50,7 @@ inherited frmDistritos: TfrmDistritos
           Top = 54
           Width = 862
           Height = 371
+          Anchors = [akLeft, akTop, akRight, akBottom]
           TabOrder = 1
           object cxGridDBTableView2: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
@@ -103,6 +103,12 @@ inherited frmDistritos: TfrmDistritos
               PropertiesClassName = 'TcxTextEditProperties'
               Properties.CharCase = ecUpperCase
             end
+            object cxGridDBTableView2ACTIVO: TcxGridDBColumn
+              DataBinding.FieldName = 'ACTIVO'
+              PropertiesClassName = 'TcxCheckBoxProperties'
+              Properties.ValueChecked = 1
+              Properties.ValueUnchecked = 0
+            end
           end
           object cxGridLevel2: TcxGridLevel
             GridView = cxGridDBTableView2
@@ -141,8 +147,6 @@ inherited frmDistritos: TfrmDistritos
       0
       0)
     inherited dxBarManager1Bar1: TdxBar
-      DockedDockControl = nil
-      DockedDockingStyle = dsNone
       FloatClientWidth = 65
       FloatClientHeight = 324
     end

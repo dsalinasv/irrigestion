@@ -19,7 +19,7 @@ object dmData: TdmData
         'Token=91d62ebb5b0d1b1b'
       'Filters={}'
       'DSProxyPort=211'
-      'ServerConnection=TsmModulo.GetConnectionIrriModel')
+      'ServerConnection=TsmModulo.GetConnectionIrriPapa')
     Left = 32
     Top = 16
   end
@@ -175,36 +175,6 @@ object dmData: TdmData
       FieldName = 'dtsSubsistemas'
     end
   end
-  object dsHistorico: TDataSource
-    DataSet = cdsHistorico
-    Left = 187
-    Top = 202
-  end
-  object cdsHistorico: TClientDataSet
-    Aggregates = <>
-    DataSetField = cdsEstaciondtsHistoricos
-    Params = <>
-    Left = 179
-    Top = 194
-    object cdsHistoricoID_ESTACION: TStringField
-      FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Size = 38
-    end
-    object cdsHistoricoFECHA: TSQLTimeStampField
-      DisplayLabel = 'Fecha'
-      FieldName = 'FECHA'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object cdsHistoricoETO: TFloatField
-      DisplayLabel = 'Et0'
-      FieldName = 'ETO'
-    end
-    object cdsHistoricoTEMP: TFloatField
-      DisplayLabel = 'Temp'
-      FieldName = 'TEMP'
-    end
-  end
   object dsEstado: TDataSource
     DataSet = cdsEstado
     Left = 43
@@ -220,10 +190,13 @@ object dmData: TdmData
     OnNewRecord = cdsNewRecord
     Left = 35
     Top = 194
+    object cdsEstadoID_ESTADO: TSmallintField
+      FieldName = 'ID_ESTADO'
+      Required = True
+    end
     object cdsEstadoNOMBRE: TStringField
       DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
-      Size = 50
     end
     object cdsEstadodtsEstaciones: TDataSetField
       FieldName = 'dtsEstaciones'
@@ -241,24 +214,19 @@ object dmData: TdmData
     OnNewRecord = cdsNewRecord
     Left = 107
     Top = 194
-    object cdsEstacionID_ESTACION: TStringField
-      DisplayLabel = 'Clave'
+    object cdsEstacionID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-      Size = 38
     end
-    object cdsEstacionID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
-      Size = 38
+    object cdsEstacionID_ESTADO: TSmallintField
+      FieldName = 'ID_ESTADO'
     end
     object cdsEstacionNOMBRE: TStringField
-      DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
       Size = 50
     end
-    object cdsEstaciondtsHistoricos: TDataSetField
-      FieldName = 'dtsHistoricos'
+    object cdsEstacionACTIVO: TSmallintField
+      FieldName = 'ACTIVO'
     end
   end
   object dsFenologia: TDataSource

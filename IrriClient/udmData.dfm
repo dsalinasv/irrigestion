@@ -18,7 +18,7 @@ object dmData: TdmData
         'Token=91d62ebb5b0d1b1b'
       'Filters={}'
       'DSProxyPort=211'
-      'ServerConnection=TsmModulo.GetConnectionIrriModel'
+      'ServerConnection=TsmModulo.GetConnectionIrriPapa'
       'HostName=cevaf.redirectme.net')
     Left = 32
     Top = 16
@@ -35,6 +35,7 @@ object dmData: TdmData
     Top = 72
   end
   object cdsUsuario: TClientDataSet
+    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -158,6 +159,7 @@ object dmData: TdmData
     Top = 192
   end
   object cdsPluviometro: TClientDataSet
+    Active = True
     Aggregates = <>
     DataSetField = cdsUsuariodtsPluviometros
     Filtered = True
@@ -207,6 +209,7 @@ object dmData: TdmData
     end
   end
   object cdsLluvia: TClientDataSet
+    Active = True
     Aggregates = <>
     DataSetField = cdsPluviometrodtsLluvias
     Params = <
@@ -405,9 +408,8 @@ object dmData: TdmData
       Required = True
       Size = 38
     end
-    object cdsParcelaID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
-      Size = 38
+    object cdsParcelaID_ESTADO: TSmallintField
+      FieldName = 'ID_ESTADO'
     end
     object cdsParcelaID_ESTACION: TStringField
       FieldName = 'ID_ESTACION'
@@ -530,50 +532,47 @@ object dmData: TdmData
   end
   object cdsEstacion: TClientDataSet
     Aggregates = <>
-    DataSetField = cdsDistritodtsEstacion
+    DataSetField = cdsEstadodtsEstacion
     Params = <>
     Left = 99
     Top = 306
-    object cdsEstacionID_ESTACION: TStringField
+    object cdsEstacionID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-      Size = 38
     end
-    object cdsEstacionID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
-      Size = 38
+    object cdsEstacionID_ESTADO: TSmallintField
+      FieldName = 'ID_ESTADO'
     end
     object cdsEstacionNOMBRE: TStringField
-      DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
       Size = 50
     end
+    object cdsEstacionACTIVO: TSmallintField
+      FieldName = 'ACTIVO'
+    end
   end
   object dsDistrito: TDataSource
-    DataSet = cdsDistrito
+    DataSet = cdsEstado
     Left = 35
     Top = 314
   end
-  object cdsDistrito: TClientDataSet
+  object cdsEstado: TClientDataSet
     Aggregates = <>
     Params = <>
-    ProviderName = 'dspDistrito'
+    ProviderName = 'dspEstado'
     RemoteServer = dspConexion
     AfterPost = cdsAfterPost
     AfterDelete = cdsAfterPost
     Left = 27
     Top = 306
-    object cdsDistritoID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
+    object cdsEstadoID_ESTADO: TSmallintField
+      FieldName = 'ID_ESTADO'
       Required = True
-      Size = 38
     end
-    object cdsDistritoNOMBRE: TStringField
+    object cdsEstadoNOMBRE: TStringField
       FieldName = 'NOMBRE'
-      Size = 50
     end
-    object cdsDistritodtsEstacion: TDataSetField
+    object cdsEstadodtsEstacion: TDataSetField
       FieldName = 'dtsEstacion'
     end
   end

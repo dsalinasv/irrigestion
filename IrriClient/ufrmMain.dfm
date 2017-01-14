@@ -7,7 +7,6 @@ inherited frmMain: TfrmMain
   WindowState = wsMaximized
   OnClose = FormClose
   OnShow = FormShow
-  ExplicitLeft = -138
   ExplicitWidth = 1280
   ExplicitHeight = 720
   PixelsPerInch = 96
@@ -118,13 +117,13 @@ inherited frmMain: TfrmMain
             Left = 3
             Top = 88
             Anchors = [akLeft, akTop, akRight]
-            Caption = 'Distrito'
+            Caption = 'Estado'
             Transparent = True
           end
           object cmbDistritos: TcxDBLookupComboBox
             Left = 5
             Top = 105
-            DataBinding.DataField = 'ID_DISTRITO'
+            DataBinding.DataField = 'ID_ESTADO'
             DataBinding.DataSource = dmData.dsParcela
             Properties.CharCase = ecUpperCase
             Properties.DropDownAutoSize = True
@@ -266,10 +265,6 @@ inherited frmMain: TfrmMain
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitLeft = 308
-          ExplicitTop = 105
-          ExplicitWidth = 553
-          ExplicitHeight = 233
           object DBGrid2: TcxGrid
             Left = 0
             Top = 0
@@ -277,9 +272,6 @@ inherited frmMain: TfrmMain
             Height = 480
             Align = alClient
             TabOrder = 0
-            ExplicitLeft = 376
-            ExplicitWidth = 828
-            ExplicitHeight = 530
             object DBGrid2DBTableView1: TcxGridDBTableView
               Navigator.Buttons.CustomButtons = <>
               Navigator.Buttons.First.Enabled = False
@@ -459,7 +451,6 @@ inherited frmMain: TfrmMain
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 1
-            ExplicitWidth = 1254
             DesignSize = (
               989
               50)

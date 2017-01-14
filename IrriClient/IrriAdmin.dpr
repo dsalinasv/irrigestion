@@ -7,7 +7,7 @@ uses
   udmDataAdmin in 'udmDataAdmin.pas' {dmData: TDataModule},
   ufrmCiclos in 'catalogos\ufrmCiclos.pas' {frmCiclos},
   ufrmSuelos in 'catalogos\ufrmSuelos.pas' {frmSuelos},
-  ufrmEstados in 'catalogos\ufrmEstados.pas' {frmDistritos},
+  ufrmEstados in 'catalogos\ufrmEstados.pas' {frmEstados},
   ufrmCultivos in 'catalogos\ufrmCultivos.pas' {frmCultivos},
   ufrmSistemas in 'catalogos\ufrmSistemas.pas' {frmSistemas},
   ufrmUsuarios in 'catalogos\ufrmUsuarios.pas' {frmUsuarios},

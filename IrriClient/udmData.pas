@@ -52,8 +52,6 @@ type
     dsParcela: TDataSource;
     cdsParcela: TClientDataSet;
     cdsParcelaID_PARCELA: TStringField;
-    cdsParcelaID_DISTRITO: TStringField;
-    cdsParcelaID_ESTACION: TStringField;
     cdsParcelaNOMBRE: TStringField;
     cdsParcelaSUPERFICIE: TFloatField;
     cdsParcelaID_PLUVIOMETRO: TStringField;
@@ -87,11 +85,8 @@ type
     cdsRiegoEA: TFloatField;
     dsEstacion: TDataSource;
     cdsEstacion: TClientDataSet;
-    cdsEstacionID_ESTACION: TStringField;
-    cdsEstacionID_DISTRITO: TStringField;
-    cdsEstacionNOMBRE: TStringField;
     dsDistrito: TDataSource;
-    cdsDistrito: TClientDataSet;
+    cdsEstado: TClientDataSet;
     opnDialog: TOpenDialog;
     cdsSistema: TClientDataSet;
     cdsSistemaID_SISTEMA: TStringField;
@@ -111,9 +106,6 @@ type
     cdsTipoTIPO: TStringField;
     cdsSubsistema: TClientDataSet;
     sdExcel: TSaveDialog;
-    cdsDistritoID_DISTRITO: TStringField;
-    cdsDistritoNOMBRE: TStringField;
-    cdsDistritodtsEstacion: TDataSetField;
     cdsCultivodtsTipo: TDataSetField;
     cdsTipodtsVariedad: TDataSetField;
     cdsVariedadID_VARIEDAD: TStringField;
@@ -210,6 +202,15 @@ type
     cdsEstratosSAT_POND: TAggregateField;
     cdsSueloSATURACION: TFloatField;
     cdsEstratosHA_POND: TAggregateField;
+    cdsParcelaID_ESTADO: TSmallintField;
+    cdsParcelaID_ESTACION: TStringField;
+    cdsEstadoID_ESTADO: TSmallintField;
+    cdsEstadoNOMBRE: TStringField;
+    cdsEstadodtsEstacion: TDataSetField;
+    cdsEstacionID_ESTACION: TIntegerField;
+    cdsEstacionID_ESTADO: TSmallintField;
+    cdsEstacionNOMBRE: TStringField;
+    cdsEstacionACTIVO: TSmallintField;
     procedure AsignarEventos;
     procedure cdsAfterPost(DataSet: TDataSet);
     procedure cdsNewRecord(DataSet: TDataSet);
@@ -380,7 +381,7 @@ begin
   frmSplash.Load := 'Cargando ' + sMensaje;
 end;
 begin
-  Abrir(cdsDistrito, 'Cargando distritos de riego');
+  Abrir(cdsEstado, 'Cargando distritos de riego');
   Abrir(cdsCiclo, 'Cargando ciclos agrícolas');
   Abrir(cdsSuelo, 'Cargando texturas de suelos');
   Abrir(cdsSistema, 'Cargando sistemas de riego');
