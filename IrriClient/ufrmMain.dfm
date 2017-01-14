@@ -18,16 +18,16 @@ inherited frmMain: TfrmMain
     LookAndFeel.SkinName = ''
     ExplicitWidth = 1264
     ExplicitHeight = 560
-    ClientRectBottom = 556
-    ClientRectRight = 1260
+    ClientRectBottom = 560
+    ClientRectRight = 1264
     inherited tabListado: TcxTabSheet
       ExplicitLeft = 4
       ExplicitTop = 24
       ExplicitWidth = 1256
       ExplicitHeight = 532
       inherited grdDatos: TcxGrid
-        Width = 1256
-        Height = 532
+        Width = 1264
+        Height = 536
         LookAndFeel.SkinName = ''
         ExplicitWidth = 1256
         ExplicitHeight = 532
@@ -48,21 +48,22 @@ inherited frmMain: TfrmMain
       ExplicitWidth = 1256
       ExplicitHeight = 532
       inherited ScrollBox1: TcxScrollBox
-        Width = 1256
-        Height = 532
+        Width = 1264
+        Height = 536
         ExplicitWidth = 1256
         ExplicitHeight = 532
         object Panel1: TPanel
           Left = 0
           Top = 0
           Width = 265
-          Height = 530
+          Height = 534
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitHeight = 530
           DesignSize = (
             265
-            530)
+            534)
           object cxDBTextEdit9: TcxDBTextEdit
             Left = 61
             Top = 8
@@ -120,20 +121,20 @@ inherited frmMain: TfrmMain
             Caption = 'Estado'
             Transparent = True
           end
-          object cmbDistritos: TcxDBLookupComboBox
+          object cmbEstados: TcxDBLookupComboBox
             Left = 5
             Top = 105
             DataBinding.DataField = 'ID_ESTADO'
             DataBinding.DataSource = dmData.dsParcela
             Properties.CharCase = ecUpperCase
             Properties.DropDownAutoSize = True
-            Properties.KeyFieldNames = 'ID_DISTRITO'
+            Properties.KeyFieldNames = 'ID_ESTADO'
             Properties.ListColumns = <
               item
                 FieldName = 'NOMBRE'
               end>
             Properties.ListOptions.SyncMode = True
-            Properties.ListSource = dmData.dsDistrito
+            Properties.ListSource = dmData.dsEstado
             Properties.MaxLength = 0
             TabOrder = 7
             Width = 247
@@ -260,18 +261,22 @@ inherited frmMain: TfrmMain
         object Panel3: TPanel
           Left = 265
           Top = 0
-          Width = 989
-          Height = 530
+          Width = 997
+          Height = 534
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 989
+          ExplicitHeight = 530
           object DBGrid2: TcxGrid
             Left = 0
             Top = 0
-            Width = 989
-            Height = 480
+            Width = 997
+            Height = 484
             Align = alClient
             TabOrder = 0
+            ExplicitWidth = 989
+            ExplicitHeight = 480
             object DBGrid2DBTableView1: TcxGridDBTableView
               Navigator.Buttons.CustomButtons = <>
               Navigator.Buttons.First.Enabled = False
@@ -445,14 +450,16 @@ inherited frmMain: TfrmMain
           end
           object Panel2: TPanel
             Left = 0
-            Top = 480
-            Width = 989
+            Top = 484
+            Width = 997
             Height = 50
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 1
+            ExplicitTop = 480
+            ExplicitWidth = 989
             DesignSize = (
-              989
+              997
               50)
             object cmbVariedad: TcxDBLookupComboBox
               Left = 607

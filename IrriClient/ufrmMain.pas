@@ -53,7 +53,7 @@ type
     txtUbicacion: TcxDBTextEdit;
     cxLabel11: TcxLabel;
     cxLabel5: TcxLabel;
-    cmbDistritos: TcxDBLookupComboBox;
+    cmbEstados: TcxDBLookupComboBox;
     Label2: TcxLabel;
     cmbEstaciones: TcxDBLookupComboBox;
     Label3: TcxLabel;

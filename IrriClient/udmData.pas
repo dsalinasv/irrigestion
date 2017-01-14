@@ -85,7 +85,7 @@ type
     cdsRiegoEA: TFloatField;
     dsEstacion: TDataSource;
     cdsEstacion: TClientDataSet;
-    dsDistrito: TDataSource;
+    dsEstado: TDataSource;
     cdsEstado: TClientDataSet;
     opnDialog: TOpenDialog;
     cdsSistema: TClientDataSet;

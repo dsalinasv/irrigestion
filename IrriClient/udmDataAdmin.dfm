@@ -19,7 +19,7 @@ object dmData: TdmData
         'Token=91d62ebb5b0d1b1b'
       'Filters={}'
       'DSProxyPort=211'
-      'ServerConnection=TsmModulo.GetConnectionIrriPapa')
+      'ServerConnection=TsmModulo.GetConnectionIrriModel')
     Left = 32
     Top = 16
   end

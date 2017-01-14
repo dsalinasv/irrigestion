@@ -18,7 +18,7 @@ object dmData: TdmData
         'Token=91d62ebb5b0d1b1b'
       'Filters={}'
       'DSProxyPort=211'
-      'ServerConnection=TsmModulo.GetConnectionIrriPapa'
+      'ServerConnection=TsmModulo.GetConnectionIrriModel'
       'HostName=cevaf.redirectme.net')
     Left = 32
     Top = 16
@@ -35,7 +35,6 @@ object dmData: TdmData
     Top = 72
   end
   object cdsUsuario: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -159,7 +158,6 @@ object dmData: TdmData
     Top = 192
   end
   object cdsPluviometro: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = cdsUsuariodtsPluviometros
     Filtered = True
@@ -209,7 +207,6 @@ object dmData: TdmData
     end
   end
   object cdsLluvia: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = cdsPluviometrodtsLluvias
     Params = <
@@ -551,7 +548,7 @@ object dmData: TdmData
       FieldName = 'ACTIVO'
     end
   end
-  object dsDistrito: TDataSource
+  object dsEstado: TDataSource
     DataSet = cdsEstado
     Left = 35
     Top = 314
@@ -1282,12 +1279,6 @@ object dmData: TdmData
     Top = 256
   end
   object cdsEstratos: TClientDataSet
-    PersistDataPacket.Data = {
-      740000009619E0BD01000000180000000500000000000300000074000B49445F
-      4553545241544F53010049000000010005574944544802000200260007455350
-      45534F520800040000000000024343080004000000000003504D500800040000
-      0000000A53415455524143494F4E08000400000000000000}
-    Active = True
     Aggregates = <>
     AggregatesActive = True
     FieldDefs = <

@@ -8,7 +8,7 @@
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
         <ProjectVersion>18.1</ProjectVersion>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -104,21 +104,21 @@
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <VerInfo_MinorVer>11</VerInfo_MinorVer>
-        <VerInfo_MajorVer>2016</VerInfo_MajorVer>
-        <VerInfo_Release>18</VerInfo_Release>
+        <VerInfo_MinorVer>1</VerInfo_MinorVer>
+        <VerInfo_MajorVer>2017</VerInfo_MajorVer>
+        <VerInfo_Release>14</VerInfo_Release>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=INIFAP;FileDescription=IrriModel;FileVersion=2016.11.18.0;InternalName=IrriModel;LegalCopyright=© INIFAP 2016;LegalTrademarks=™ IrriModel;OriginalFilename=IrriModel;ProductName=IrriModel;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=INIFAP;FileDescription=IrriModel;FileVersion=2017.1.14.0;InternalName=IrriModel;LegalCopyright=© INIFAP 2016;LegalTrademarks=™ IrriModel;OriginalFilename=IrriModel;ProductName=IrriModel;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <AppEnableHighDPI>true</AppEnableHighDPI>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
-        <VerInfo_Release>18</VerInfo_Release>
-        <VerInfo_MajorVer>2016</VerInfo_MajorVer>
-        <VerInfo_MinorVer>11</VerInfo_MinorVer>
+        <VerInfo_Release>14</VerInfo_Release>
+        <VerInfo_MajorVer>2017</VerInfo_MajorVer>
+        <VerInfo_MinorVer>1</VerInfo_MinorVer>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=INIFAP;FileDescription=IrriModel;FileVersion=2016.11.18.0;InternalName=IrriModel;LegalCopyright=© INIFAP 2016;LegalTrademarks=™ IrriModel;OriginalFilename=IrriModel;ProductName=IrriModel;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=INIFAP;FileDescription=IrriModel;FileVersion=2017.1.14.0;InternalName=IrriModel;LegalCopyright=© INIFAP 2016;LegalTrademarks=™ IrriModel;OriginalFilename=IrriModel;ProductName=IrriModel;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <AppEnableHighDPI>true</AppEnableHighDPI>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
