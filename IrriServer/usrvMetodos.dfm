@@ -67,9 +67,8 @@ object smModulo: TsmModulo
       Required = True
       Size = 38
     end
-    object dtsParcelasID_ESTADO: TStringField
+    object dtsParcelasID_ESTADO: TSmallintField
       FieldName = 'ID_ESTADO'
-      Size = 38
     end
     object dtsParcelasID_ESTACION: TStringField
       FieldName = 'ID_ESTACION'
@@ -891,24 +890,28 @@ object smModulo: TsmModulo
       'OMBRE'
     DataSource = dsEstados
     MaxBlobSize = -1
-    Params = <>
+    Params = <
+      item
+        DataType = ftSmallint
+        Name = 'ID_ESTADO'
+        ParamType = ptInput
+      end>
     SQLConnection = cntShared
     Left = 608
     Top = 80
-    object dtsEstacionesID_ESTACION: TStringField
+    object dtsEstacionesID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-      Size = 38
     end
-    object dtsEstacionesID_ESTADO: TStringField
+    object dtsEstacionesID_ESTADO: TSmallintField
       FieldName = 'ID_ESTADO'
-      Size = 38
     end
     object dtsEstacionesNOMBRE: TStringField
-      DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
       Size = 50
+    end
+    object dtsEstacionesACTIVO: TSmallintField
+      FieldName = 'ACTIVO'
     end
   end
   object dspEstaciones: TDataSetProvider
@@ -1042,28 +1045,32 @@ object smModulo: TsmModulo
   end
   object dtsEstacion: TSQLDataSet
     CommandText = 
-      'select * from ESTACIONES where ID_ESTADO = :ID_ESTADO order by N' +
-      'OMBRE AND ACTIVO = 1'
+      'select * from ESTACIONES where ID_ESTADO = :ID_ESTADO and ACTIVO' +
+      ' = 1 order by NOMBRE'
     DataSource = dsEstado
     MaxBlobSize = -1
-    Params = <>
+    Params = <
+      item
+        DataType = ftSmallint
+        Name = 'ID_ESTADO'
+        ParamType = ptInput
+      end>
     SQLConnection = cntShared
     Left = 608
     Top = 280
-    object StringField1: TStringField
+    object dtsEstacionID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-      Size = 38
     end
-    object StringField2: TStringField
+    object dtsEstacionID_ESTADO: TSmallintField
       FieldName = 'ID_ESTADO'
-      Size = 38
     end
-    object StringField3: TStringField
-      DisplayLabel = 'Nombre'
+    object dtsEstacionNOMBRE: TStringField
       FieldName = 'NOMBRE'
       Size = 50
+    end
+    object dtsEstacionACTIVO: TSmallintField
+      FieldName = 'ACTIVO'
     end
   end
   object dspEstado: TDataSetProvider
@@ -1457,41 +1464,41 @@ object smModulo: TsmModulo
     MaxBlobSize = -1
     Params = <
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'ID_ESTACION'
         ParamType = ptInput
       end
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'INI'
         ParamType = ptInput
       end
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'FIN'
         ParamType = ptInput
       end>
     SQL.Strings = (
       
-        'select * from HISTORICOS where ID_ESTACION = :ID_ESTACION and FE' +
-        'CHA between :INI and :FIN order by FECHA')
+        'select ID_ESTACION,FECHA,TMED,ETO from HISTORICOS where ID_ESTAC' +
+        'ION = :ID_ESTACION and FECHA between :INI and :FIN order by FECH' +
+        'A')
     SQLConnection = cntShared
     Left = 168
     Top = 192
-    object qryClimaID_ESTACION: TStringField
+    object qryClimaID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Size = 38
+      Required = True
     end
-    object qryClimaFECHA: TSQLTimeStampField
+    object qryClimaFECHA: TDateField
       FieldName = 'FECHA'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryClimaTMED: TFloatField
+      FieldName = 'TMED'
     end
     object qryClimaETO: TFloatField
       FieldName = 'ETO'
-    end
-    object qryClimaTEMP: TFloatField
-      FieldName = 'TEMP'
     end
   end
   object dspClima: TDataSetProvider
@@ -1505,37 +1512,36 @@ object smModulo: TsmModulo
     Aggregates = <>
     Params = <
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'ID_ESTACION'
         ParamType = ptInput
       end
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'INI'
         ParamType = ptInput
       end
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'FIN'
         ParamType = ptInput
       end>
     ProviderName = 'dspClima'
     Left = 184
     Top = 208
-    object cdsClimaID_ESTACION: TStringField
+    object cdsClimaID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Size = 38
+      Required = True
     end
-    object cdsClimaFECHA: TSQLTimeStampField
+    object cdsClimaFECHA: TDateField
       FieldName = 'FECHA'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsClimaTMED: TFloatField
+      FieldName = 'TMED'
     end
     object cdsClimaETO: TFloatField
       FieldName = 'ETO'
-    end
-    object cdsClimaTEMP: TFloatField
-      FieldName = 'TEMP'
     end
   end
   object qrySiembra: TSQLQuery
@@ -1693,9 +1699,8 @@ object smModulo: TsmModulo
       Required = True
       Size = 38
     end
-    object qryParcelaID_ESTADO: TStringField
+    object qryParcelaID_ESTADO: TSmallintField
       FieldName = 'ID_ESTADO'
-      Size = 38
     end
     object qryParcelaID_ESTACION: TStringField
       FieldName = 'ID_ESTACION'
@@ -1734,57 +1739,57 @@ object smModulo: TsmModulo
       end>
     SQL.Strings = (
       'select * from ESTACIONES where ID_ESTACION = :ID_ESTACION')
-    SQLConnection = cntConexion
+    SQLConnection = cntShared
     Left = 168
     Top = 440
-    object qryEstacionID_ESTACION: TStringField
+    object qryEstacionID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
       Required = True
-      Size = 38
     end
-    object qryEstacionID_ESTADO: TStringField
+    object qryEstacionID_ESTADO: TSmallintField
       FieldName = 'ID_ESTADO'
-      Size = 38
     end
     object qryEstacionNOMBRE: TStringField
       FieldName = 'NOMBRE'
       Size = 50
+    end
+    object qryEstacionACTIVO: TSmallintField
+      FieldName = 'ACTIVO'
     end
   end
   object qryHistorico: TSQLQuery
     MaxBlobSize = -1
     Params = <
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'ID_ESTACION'
         ParamType = ptInput
       end
       item
-        DataType = ftTimeStamp
+        DataType = ftDate
         Name = 'FECHA'
         ParamType = ptInput
       end>
     SQL.Strings = (
       
-        'select * from HISTORICOS where ID_ESTACION = :ID_ESTACION AND FE' +
-        'CHA = :FECHA')
-    SQLConnection = cntConexion
+        'select ID_ESTACION,FECHA,TMED,ETO from HISTORICOS where ID_ESTAC' +
+        'ION = :ID_ESTACION AND FECHA = :FECHA')
+    SQLConnection = cntShared
     Left = 168
     Top = 496
-    object qryHistoricoID_ESTACION: TStringField
+    object qryHistoricoID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Size = 38
+      Required = True
     end
-    object qryHistoricoFECHA: TSQLTimeStampField
+    object qryHistoricoFECHA: TDateField
       FieldName = 'FECHA'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryHistoricoTMED: TFloatField
+      FieldName = 'TMED'
     end
     object qryHistoricoETO: TFloatField
       FieldName = 'ETO'
-    end
-    object qryHistoricoTEMP: TFloatField
-      FieldName = 'TEMP'
     end
   end
   object qrySuelo: TSQLQuery
@@ -1854,32 +1859,32 @@ object smModulo: TsmModulo
     MaxBlobSize = -1
     Params = <
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'ID_ESTACION'
         ParamType = ptInput
       end
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'INI'
         ParamType = ptInput
       end
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'FIN'
         ParamType = ptInput
       end>
     SQL.Strings = (
       
-        'SELECT AVG(ETO)AS ETO, AVG(TEMP)AS TEMP FROM HISTORICOS WHERE ID' +
+        'SELECT AVG(ETO)AS ETO, AVG(TMED)AS TMED FROM HISTORICOS WHERE ID' +
         '_ESTACION = :ID_ESTACION AND FECHA BETWEEN :INI AND :FIN')
-    SQLConnection = cntConexion
+    SQLConnection = cntShared
     Left = 248
     Top = 328
     object qryAvgETO: TFloatField
       FieldName = 'ETO'
     end
-    object qryAvgTEMP: TFloatField
-      FieldName = 'TEMP'
+    object qryAvgTMED: TFloatField
+      FieldName = 'TMED'
     end
   end
   object qryUsuario: TSQLQuery
@@ -1956,6 +1961,7 @@ object smModulo: TsmModulo
       'WaitOnLocks=True'
       'IsolationLevel=ReadCommitted'
       'Trim Char=False')
+    Connected = True
     Left = 544
     Top = 256
   end

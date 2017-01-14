@@ -128,8 +128,6 @@ type
     dtsParcelasID_ESTACION: TStringField;
     cdsData: TClientDataSet;
     dtsEstadosNOMBRE: TStringField;
-    dtsEstacionesID_ESTACION: TStringField;
-    dtsEstacionesNOMBRE: TStringField;
     dtsHistoricosID_ESTACION: TStringField;
     dtsHistoricosFECHA: TSQLTimeStampField;
     dtsHistoricosETO: TFloatField;
@@ -144,9 +142,6 @@ type
     dsEstado: TDataSource;
     dspEstacion: TDataSetProvider;
     dtsEstacion: TSQLDataSet;
-    StringField1: TStringField;
-    StringField2: TStringField;
-    StringField3: TStringField;
     dspEstado: TDataSetProvider;
     dtsEstado: TSQLDataSet;
     StringField5: TStringField;
@@ -227,28 +222,12 @@ type
     qryParcelaSUPERFICIE: TFloatField;
     qryParcelaID_PLUVIOMETRO: TStringField;
     qryParcelaUBICACION: TStringField;
-    qryEstacionID_ESTACION: TStringField;
-    qryEstacionNOMBRE: TStringField;
-    qryHistoricoID_ESTACION: TStringField;
-    qryHistoricoFECHA: TSQLTimeStampField;
-    qryHistoricoETO: TFloatField;
-    qryHistoricoTEMP: TFloatField;
     qrySueloID_SUELO: TStringField;
     qrySueloARCILLA: TFloatField;
     qrySueloARENA: TFloatField;
     qrySueloNOMBRE: TStringField;
     qrySueloMO: TFloatField;
     qrySueloDA: TFloatField;
-    qryClimaID_ESTACION: TStringField;
-    qryClimaFECHA: TSQLTimeStampField;
-    qryClimaETO: TFloatField;
-    qryClimaTEMP: TFloatField;
-    cdsClimaID_ESTACION: TStringField;
-    cdsClimaFECHA: TSQLTimeStampField;
-    cdsClimaETO: TFloatField;
-    cdsClimaTEMP: TFloatField;
-    qryAvgETO: TFloatField;
-    qryAvgTEMP: TFloatField;
     qryUsuario: TSQLQuery;
     dspUser: TDataSetProvider;
     dtsParcelasHA: TFloatField;
@@ -320,6 +299,34 @@ type
     cntShared: TSQLConnection;
     dtsEstadosID_ESTADO: TSmallintField;
     dtsEstadoID_ESTADO: TSmallintField;
+    dtsParcelasID_ESTADO: TSmallintField;
+    qryParcelaID_ESTADO: TSmallintField;
+    qryHistoricoID_ESTACION: TIntegerField;
+    qryHistoricoFECHA: TDateField;
+    qryEstacionID_ESTACION: TIntegerField;
+    qryEstacionID_ESTADO: TSmallintField;
+    qryEstacionNOMBRE: TStringField;
+    qryEstacionACTIVO: TSmallintField;
+    dtsEstacionesID_ESTACION: TIntegerField;
+    dtsEstacionesID_ESTADO: TSmallintField;
+    dtsEstacionesNOMBRE: TStringField;
+    dtsEstacionesACTIVO: TSmallintField;
+    dtsEstacionID_ESTACION: TIntegerField;
+    dtsEstacionID_ESTADO: TSmallintField;
+    dtsEstacionNOMBRE: TStringField;
+    dtsEstacionACTIVO: TSmallintField;
+    qryClimaID_ESTACION: TIntegerField;
+    qryClimaFECHA: TDateField;
+    qryHistoricoTMED: TFloatField;
+    qryHistoricoETO: TFloatField;
+    qryClimaTMED: TFloatField;
+    qryClimaETO: TFloatField;
+    cdsClimaID_ESTACION: TIntegerField;
+    cdsClimaFECHA: TDateField;
+    cdsClimaTMED: TFloatField;
+    cdsClimaETO: TFloatField;
+    qryAvgETO: TFloatField;
+    qryAvgTMED: TFloatField;
   private
     function GetDgc(temp, tmin, tmax: double): double;
     function GetEtapa(idTipo: string; dgca: double): String;
@@ -434,8 +441,8 @@ begin
       cdsData.Append;
       cdsDataFECHA.Value:= cdsClimaFECHA.AsDateTime;
       cdsDataETO.Value:= cdsClimaETO.Value;
-      cdsDataTEMP.Value:= cdsClimaTEMP.Value;
-      cdsDataDGC.Value:= GetDgc(cdsClimaTEMP.Value, tmin, tmax);
+      cdsDataTEMP.Value:= cdsClimaTMED.Value;
+      cdsDataDGC.Value:= GetDgc(cdsClimaTMED.Value, tmin, tmax);
       Acumulado:= Acumulado + cdsDataDGC.Value;
       cdsDataACUMULADO.Value:= Acumulado;
       cdsDataETAPA.AsString:= GetEtapa(idTipo, cdsDataACUMULADO.Value);
@@ -519,8 +526,7 @@ begin
       ParamByName('ID_ESTACION').AsString:= idEstacion;
       ParamByName('FECHA').AsDate:= Result;
       Open;
-      DgcAcumulado := DgcAcumulado + GetDgc(qryHistoricoTEMP
-        .Value, Tumin, Tumax);
+      DgcAcumulado := DgcAcumulado + GetDgc(qryHistoricoTMED.Value, Tumin, Tumax);
     end;
     Result := IncDay(Result, 1);
   end;
@@ -555,7 +561,7 @@ begin
       while not Eof do
       begin
         etosList.Add(TEto.Create(cdsClimaFECHA.AsDateTime, cdsClimaETO.Value));
-        tempList.Add(TTemp.Create(cdsClimaFECHA.AsDateTime, cdsClimaTEMP.Value));
+        tempList.Add(TTemp.Create(cdsClimaFECHA.AsDateTime, cdsClimaTMED.Value));
         Next;
       end;
     end;
@@ -567,7 +573,7 @@ begin
       ParamByName('FIN').AsDate:= cdsClimaFECHA.AsDateTime;
       Open;
       avgEto := qryAvgETO.Value;
-      avgTemp := qryAvgTEMP.Value;
+      avgTemp := qryAvgTMED.Value;
     end;
     for I := 0 to Pred(dias) do
     begin
