@@ -5,7 +5,8 @@ uses
   Vcl.SvcMgr,
   usrvMetodos in 'usrvMetodos.pas' {ServerMethods1: TDSServerModule},
   usrvContenedor in 'usrvContenedor.pas' {IrriModel: TService},
-  uData in 'uData.pas';
+  uData in 'uData.pas',
+  uLog in 'uLog.pas';
 
 {$R *.RES}
 

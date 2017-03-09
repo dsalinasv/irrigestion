@@ -5143,6 +5143,7 @@ object frmMainPlan: TfrmMainPlan
     Top = 256
   end
   object dspPlan: TDataSetProvider
+    DataSet = dmData.ssmPlan
     Left = 272
     Top = 328
   end
