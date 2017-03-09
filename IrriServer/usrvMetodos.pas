@@ -694,12 +694,12 @@ begin
 //         ', mdp=' + FloatToStr(f));
       if dia.calcular then
       begin
-        cdsPredicciones.Append;
-        cdsPrediccionesFECHA_RIEGO.AsDateTime := IncDay(temp.fecha, -1);
-        cdsPrediccionesLAMINA.Value := defAnterior / 10;
-        cdsPrediccionesDGCA.Value:= DgcAcumulado;
-        cdsPrediccionesETAPA.AsString:= GetEtapa(idTipo, DgcAcumulado);
-        cdsPredicciones.Post;
+//        cdsPredicciones.Append;
+//        cdsPrediccionesFECHA_RIEGO.AsDateTime := IncDay(temp.fecha, -1);
+//        cdsPrediccionesLAMINA.Value := defAnterior / 10;
+//        cdsPrediccionesDGCA.Value:= DgcAcumulado;
+//        cdsPrediccionesETAPA.AsString:= GetEtapa(idTipo, DgcAcumulado);
+//        cdsPredicciones.Post;
         HaSiembra:= ha;
         dia.defAnterior:= 0;
         dia.calcular;
@@ -708,18 +708,18 @@ begin
       dia.Free;
     end;
     riego:= 0;
-    with cdsPredicciones do
-    begin
-      First;
-      while not Eof do
-      begin
-        Edit;
-        Inc(riego);
-        cdsPrediccionesNUMERO_RIEGO.Value:= riego;
-        Post;
-        Next;
-      end;
-    end;
+//    with cdsPredicciones do
+//    begin
+//      First;
+//      while not Eof do
+//      begin
+//        Edit;
+//        Inc(riego);
+//        cdsPrediccionesNUMERO_RIEGO.Value:= riego;
+//        Post;
+//        Next;
+//      end;
+//    end;
   finally
     etos.Destroy;
     for temp in tempList do

@@ -1946,7 +1946,6 @@ object smModulo: TsmModulo
       'WaitOnLocks=True'
       'IsolationLevel=ReadCommitted'
       'Trim Char=False')
-    Connected = True
     Left = 544
     Top = 256
   end
