@@ -341,7 +341,7 @@ object frmMainPlan: TfrmMainPlan
         Caption = 'Gasto (lps)'
         Transparent = True
       end
-      object cmbDistrito: TcxLookupComboBox
+      object cmbEstado: TcxLookupComboBox
         Left = 16
         Top = 207
         Hint = 
@@ -351,13 +351,13 @@ object frmMainPlan: TfrmMainPlan
         Properties.CharCase = ecUpperCase
         Properties.DropDownAutoSize = True
         Properties.DropDownSizeable = True
-        Properties.KeyFieldNames = 'ID_DISTRITO'
+        Properties.KeyFieldNames = 'ID_ESTADO'
         Properties.ListColumns = <
           item
             FieldName = 'NOMBRE'
           end>
         Properties.ListOptions.SyncMode = True
-        Properties.ListSource = dmData.dsDistrito
+        Properties.ListSource = dmData.dsEstado
         ShowHint = True
         TabOrder = 6
         Width = 226
@@ -365,7 +365,7 @@ object frmMainPlan: TfrmMainPlan
       object cxLabel11: TcxLabel
         Left = 16
         Top = 185
-        Caption = 'Distrito'
+        Caption = 'Estado'
         Transparent = True
       end
     end

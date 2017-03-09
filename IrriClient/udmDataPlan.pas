@@ -16,19 +16,14 @@ type
     cxLocalizer: TcxLocalizer;
     dsEstacion: TDataSource;
     cdsEstacion: TClientDataSet;
-    cdsEstacionID_ESTACION: TStringField;
-    cdsEstacionID_DISTRITO: TStringField;
-    cdsEstacionNOMBRE: TStringField;
-    dsDistrito: TDataSource;
-    cdsDistrito: TClientDataSet;
+    dsEstado: TDataSource;
+    cdsEstado: TClientDataSet;
     opnDialog: TOpenDialog;
     cdsSistema: TClientDataSet;
     cdsSistemaID_SISTEMA: TStringField;
     cdsSistemaNOMBRE: TStringField;
     cdsSistemadtsSubsistemas: TDataSetField;
     dsSubsistema: TDataSource;
-    dsVariedad: TDataSource;
-    cdsVariedad: TClientDataSet;
     dsTipo: TDataSource;
     dsCultivo: TDataSource;
     cdsCultivo: TClientDataSet;
@@ -43,13 +38,7 @@ type
     cdsTipoTIPO: TStringField;
     cdsSubsistema: TClientDataSet;
     sdExcel: TSaveDialog;
-    cdsDistritoID_DISTRITO: TStringField;
-    cdsDistritoNOMBRE: TStringField;
-    cdsDistritodtsEstacion: TDataSetField;
     cdsCultivodtsTipo: TDataSetField;
-    cdsVariedadID_VARIEDAD: TStringField;
-    cdsVariedadNOMBRE: TStringField;
-    cdsVariedadID_TIPO: TStringField;
     ssmPlan: TSqlServerMethod;
     cdsSubsistemaID_SUBSISTEMA: TStringField;
     cdsSubsistemaNOMBRE: TStringField;
@@ -71,6 +60,13 @@ type
     cdsSueloPMP: TFloatField;
     cdsSueloHA: TFloatField;
     cdsSueloSATURACION: TFloatField;
+    cdsEstadoID_ESTADO: TSmallintField;
+    cdsEstadoNOMBRE: TStringField;
+    cdsEstadodtsEstacion: TDataSetField;
+    cdsEstacionID_ESTACION: TIntegerField;
+    cdsEstacionID_ESTADO: TSmallintField;
+    cdsEstacionNOMBRE: TStringField;
+    cdsEstacionACTIVO: TSmallintField;
     procedure AsignarEventos;
     procedure cdsNewRecord(DataSet: TDataSet);
     procedure cdsAfterPost(DataSet: TDataSet);
@@ -235,7 +231,7 @@ begin
   Abrir(cdsSuelo, 'texturas de suelo');
   Abrir(cdsSistema, 'sistemas de riego');
   Abrir(cdsCultivo, 'cultivos');
-  Abrir(cdsDistrito, 'distritos');
+  Abrir(cdsEstado, 'distritos');
 end;
 
 procedure TdmData.SetNombre(const Value: String);

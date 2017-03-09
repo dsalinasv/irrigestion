@@ -656,12 +656,12 @@ begin
   etos := TDictionary<String, double>.Create;
   tempList := TList<TTemp>.Create;
   try
-    if GetHistoricos(etos, tempList, idEstacion, fechaSiembra, 0) then
-    begin
-      cdsPrediccionesMENSAJE.AsString := 'No hay clima';
-      cdsPredicciones.Post;
-      Exit(cdsPredicciones);
-    end;
+//    if GetHistoricos(etos, tempList, idEstacion, fechaSiembra, 0) then
+//    begin
+//      cdsPrediccionesMENSAJE.AsString := 'No hay clima';
+//      cdsPredicciones.Post;
+//      Exit(cdsPredicciones);
+//    end;
 //    GetTipo(idTipo, Tumax, Tumin, Alpha0, Alpha1, Xkmax, Kmax, Kco, Pro, Prmax,
 //      Alpha2, Alpha3, Alpha4, Alpha5);
 //    HaSiembra := ha * (humedad / 100);

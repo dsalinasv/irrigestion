@@ -41,48 +41,48 @@ object dmData: TdmData
   end
   object cdsEstacion: TClientDataSet
     Aggregates = <>
-    DataSetField = cdsDistritodtsEstacion
+    DataSetField = cdsEstadodtsEstacion
     Params = <>
     Left = 107
     Top = 138
-    object cdsEstacionID_ESTACION: TStringField
+    object cdsEstacionID_ESTACION: TIntegerField
       FieldName = 'ID_ESTACION'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-      Size = 38
     end
-    object cdsEstacionID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
-      Size = 38
+    object cdsEstacionID_ESTADO: TSmallintField
+      FieldName = 'ID_ESTADO'
     end
     object cdsEstacionNOMBRE: TStringField
-      DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
       Size = 50
     end
+    object cdsEstacionACTIVO: TSmallintField
+      FieldName = 'ACTIVO'
+    end
   end
-  object dsDistrito: TDataSource
-    DataSet = cdsDistrito
+  object dsEstado: TDataSource
+    DataSet = cdsEstado
     Left = 40
     Top = 144
   end
-  object cdsDistrito: TClientDataSet
+  object cdsEstado: TClientDataSet
     Aggregates = <>
     Params = <>
-    ProviderName = 'dspDistrito'
+    ProviderName = 'dspEstado'
     RemoteServer = dspConexion
     Left = 32
     Top = 136
-    object cdsDistritoID_DISTRITO: TStringField
-      FieldName = 'ID_DISTRITO'
+    object cdsEstadoID_ESTADO: TSmallintField
+      DisplayLabel = 'Clave'
+      FieldName = 'ID_ESTADO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-      Size = 38
     end
-    object cdsDistritoNOMBRE: TStringField
+    object cdsEstadoNOMBRE: TStringField
+      DisplayLabel = 'Nombre'
       FieldName = 'NOMBRE'
-      Size = 50
     end
-    object cdsDistritodtsEstacion: TDataSetField
+    object cdsEstadodtsEstacion: TDataSetField
       FieldName = 'dtsEstacion'
     end
   end
@@ -118,35 +118,6 @@ object dmData: TdmData
     DataSet = cdsSubsistema
     Left = 112
     Top = 208
-  end
-  object dsVariedad: TDataSource
-    DataSet = cdsVariedad
-    Left = 188
-    Top = 264
-  end
-  object cdsVariedad: TClientDataSet
-    Aggregates = <>
-    Params = <
-      item
-        DataType = ftString
-        Name = 'ID_TIPO'
-        ParamType = ptInput
-      end>
-    Left = 180
-    Top = 256
-    object cdsVariedadID_VARIEDAD: TStringField
-      FieldName = 'ID_VARIEDAD'
-      Required = True
-      Size = 38
-    end
-    object cdsVariedadNOMBRE: TStringField
-      FieldName = 'NOMBRE'
-      Size = 50
-    end
-    object cdsVariedadID_TIPO: TStringField
-      FieldName = 'ID_TIPO'
-      Size = 38
-    end
   end
   object dsTipo: TDataSource
     DataSet = cdsTipo
@@ -311,7 +282,7 @@ object dmData: TdmData
   object dsSuelo: TDataSource
     DataSet = cdsSuelo
     Left = 32
-    Top = 88
+    Top = 96
   end
   object cdsSuelo: TClientDataSet
     Aggregates = <>

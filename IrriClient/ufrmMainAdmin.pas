@@ -29,7 +29,6 @@ type
     dxBarLargeButton7: TdxBarLargeButton;
     BarManagerBar3: TdxBar;
     dxBarButton1: TdxBarButton;
-    BarManagerBar9: TdxBar;
     dxBarLargeButton4: TdxBarLargeButton;
     actCiclos: TAction;
     cxTabSheet1: TcxTabSheet;

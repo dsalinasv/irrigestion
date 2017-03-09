@@ -35,9 +35,6 @@ object frmMain: TfrmMain
     object cxTabSheet1: TcxTabSheet
       Caption = 'Presentaci'#243'n'
       ImageIndex = 0
-      ExplicitLeft = 4
-      ExplicitWidth = 1020
-      ExplicitHeight = 435
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
@@ -45,8 +42,6 @@ object frmMain: TfrmMain
         Height = 439
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 1020
-        ExplicitHeight = 435
         object evaf: TcxImage
           Left = 0
           Top = 0
@@ -4156,8 +4151,6 @@ object frmMain: TfrmMain
             1D978E4FE7A1F3BD88E7FF0BF20CF26BE4E7747DC83775D7CF308F26F07FFE3F
             8782CEC320CF8A010000000049454E44AE426082}
           TabOrder = 0
-          ExplicitWidth = 1016
-          ExplicitHeight = 431
           Height = 435
           Width = 1024
         end
@@ -10441,24 +10434,6 @@ object frmMain: TfrmMain
           ItemName = 'dxBarLargeButton8'
         end>
       OneOnRow = False
-      Row = 0
-      UseOwnFont = False
-      Visible = True
-      WholeRow = False
-    end
-    object BarManagerBar9: TdxBar
-      Caption = 'Menu'
-      CaptionButtons = <>
-      DockedDockingStyle = dsNone
-      DockedLeft = 0
-      DockedTop = 0
-      DockingStyle = dsNone
-      FloatLeft = 740
-      FloatTop = 8
-      FloatClientWidth = 51
-      FloatClientHeight = 22
-      ItemLinks = <>
-      OneOnRow = True
       Row = 0
       UseOwnFont = False
       Visible = True
