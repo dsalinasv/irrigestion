@@ -653,8 +653,8 @@ var
   riego: integer;
 begin
   CrearPredicciones;
-  etos := TDictionary<String, double>.Create;
-  tempList := TList<TTemp>.Create;
+//  etos := TDictionary<String, double>.Create;
+//  tempList := TList<TTemp>.Create;
   try
 //    if GetHistoricos(etos, tempList, idEstacion, fechaSiembra, 0) then
 //    begin
@@ -721,10 +721,10 @@ begin
 //      end;
 //    end;
   finally
-    etos.Destroy;
-    for temp in tempList do
-      temp.Free;
-    tempList.Free;
+//    etos.Destroy;
+//    for temp in tempList do
+//      temp.Free;
+//    tempList.Free;
   end;
   Exit(cdsPredicciones);
 end;
