@@ -662,52 +662,52 @@ begin
       cdsPredicciones.Post;
       Exit(cdsPredicciones);
     end;
-    GetTipo(idTipo, Tumax, Tumin, Alpha0, Alpha1, Xkmax, Kmax, Kco, Pro, Prmax,
-      Alpha2, Alpha3, Alpha4, Alpha5);
-    HaSiembra := ha * (humedad / 100);
-    DgcAcumulado := 0;
-    defAnterior := 0;
+//    GetTipo(idTipo, Tumax, Tumin, Alpha0, Alpha1, Xkmax, Kmax, Kco, Pro, Prmax,
+//      Alpha2, Alpha3, Alpha4, Alpha5);
+//    HaSiembra := ha * (humedad / 100);
+//    DgcAcumulado := 0;
+//    defAnterior := 0;
 //    cdsPrediccionesFECHA_RIEGO.AsDateTime := fechaSiembra;
 //    cdsPrediccionesLAMINA.Value := ha * Prmax * 100;
 //    cdsPrediccionesDGCA.Value:= 0;
 //    cdsPrediccionesETAPA.AsString:= GetEtapa(idTipo, 0);
 //    cdsPredicciones.Post;
-    for temp in tempList do
-    begin
-      sFecha := FormatDateTime(FORMATO, temp.fecha);
-      if not etos.TryGetValue(sFecha, eto) then
-        eto := 0;
-      DgcAcumulado := DgcAcumulado + GetDgc(temp.valor, Tumin, Tumax);
-      if DgcAcumulado > Alpha0 then
-        Break;
-      if (ha > 0.12) and (dgcAcumulado >= Alpha5) then
-        break;
-      erfc := complementaryError(sqr(((DgcAcumulado / Alpha0) - Xkmax) / Alpha1));
-      kc := Max(Kmax * erfc, Kco);
-      pr := Pro + (Prmax - Pro) * (1 - exp(-(sqr(DgcAcumulado) / sqr(Alpha2))));
-      f := Alpha3 - Alpha4 * kc;
-      dia := TDia.Create(HaSiembra, kc, pr, f, defAnterior, eto, 0, 0);
+//    for temp in tempList do
+//    begin
+//      sFecha := FormatDateTime(FORMATO, temp.fecha);
+//      if not etos.TryGetValue(sFecha, eto) then
+//        eto := 0;
+//      DgcAcumulado := DgcAcumulado + GetDgc(temp.valor, Tumin, Tumax);
+//      if DgcAcumulado > Alpha0 then
+//        Break;
+//      if (ha > 0.12) and (dgcAcumulado >= Alpha5) then
+//        break;
+//      erfc := complementaryError(sqr(((DgcAcumulado / Alpha0) - Xkmax) / Alpha1));
+//      kc := Max(Kmax * erfc, Kco);
+//      pr := Pro + (Prmax - Pro) * (1 - exp(-(sqr(DgcAcumulado) / sqr(Alpha2))));
+//      f := Alpha3 - Alpha4 * kc;
+//      dia := TDia.Create(HaSiembra, kc, pr, f, defAnterior, eto, 0, 0);
 //      log('fecha=' + sFecha + ', temp=' + FloatToStr(temp.valor) +
 //         ', dgcAcu=' + FloatToStr(dgcAcumulado) +
 //         ', eto=' + FloatToStr(eto) + ', erfc=' + FloatToStr(erfc) +
 //         ', kc=' + FloatToStr(kc) + ', pr=' + FloatToStr(pr) +
 //         ', mdp=' + FloatToStr(f));
-      if dia.calcular then
-      begin
+//      if dia.calcular then
+//      begin
 //        cdsPredicciones.Append;
 //        cdsPrediccionesFECHA_RIEGO.AsDateTime := IncDay(temp.fecha, -1);
 //        cdsPrediccionesLAMINA.Value := defAnterior / 10;
 //        cdsPrediccionesDGCA.Value:= DgcAcumulado;
 //        cdsPrediccionesETAPA.AsString:= GetEtapa(idTipo, DgcAcumulado);
 //        cdsPredicciones.Post;
-        HaSiembra:= ha;
-        dia.defAnterior:= 0;
-        dia.calcular;
-      end;
-      defAnterior := dia.defActual;
-      dia.Free;
-    end;
-    riego:= 0;
+//        HaSiembra:= ha;
+//        dia.defAnterior:= 0;
+//        dia.calcular;
+//      end;
+//      defAnterior := dia.defActual;
+//      dia.Free;
+//    end;
+//    riego:= 0;
 //    with cdsPredicciones do
 //    begin
 //      First;

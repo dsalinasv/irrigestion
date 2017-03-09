@@ -70,7 +70,7 @@ type
     frxDBDataset5: TfrxDBDataset;
     frxDBDataset6: TfrxDBDataset;
     dspPlan: TDataSetProvider;
-    cmbDistrito: TcxLookupComboBox;
+    cmbEstado: TcxLookupComboBox;
     cxLabel11: TcxLabel;
     cdsPrediccionesNUMERO_RIEGO: TIntegerField;
     cdsPrediccionesFECHA_RIEGO: TDateTimeField;
