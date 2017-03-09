@@ -356,7 +356,7 @@ var
 
 implementation
 
-uses System.DateUtils, System.Math, uLog;
+uses System.DateUtils, System.Math{, uLog};
 
 const FORMATO = 'dd/mm/yyyy';
 

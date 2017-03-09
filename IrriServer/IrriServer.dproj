@@ -152,7 +152,6 @@
             <DesignClass>TService</DesignClass>
         </DCCReference>
         <DCCReference Include="uData.pas"/>
-        <DCCReference Include="uLog.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
