@@ -14,7 +14,7 @@ object dmData: TdmData
         '.Data.DbxClientDriver,Version=23.0.0.0,Culture=neutral,PublicKey' +
         'Token=91d62ebb5b0d1b1b'
       'DriverName=DataSnap'
-      'HostName=cevaf.redirectme.net'
+      'HostName=localhost'
       'Port=8080'
       'Filters={}'
       'CommunicationProtocol=http'
