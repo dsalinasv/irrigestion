@@ -19,7 +19,7 @@ object dmData: TdmData
       'Filters={}'
       'DSProxyPort=211'
       'ServerConnection=TsmModulo.GetConnectionIrriModel'
-      'HostName=cevaf.redirectme.net')
+      'HostName=localhost')
     Left = 32
     Top = 16
   end
