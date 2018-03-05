@@ -11,7 +11,7 @@ object smModulo: TsmModulo
       'Database=C:\AppServer\PAPA.FDB'
       'RoleName=RoleName'
       'User_Name=sysdba'
-      'Password=auofdsbcs'
+      'Password=masterkey'
       'ServerCharSet='
       'SQLDialect=3'
       'ErrorResourceFile='
