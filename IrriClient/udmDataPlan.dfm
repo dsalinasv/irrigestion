@@ -8,7 +8,7 @@ object dmData: TdmData
     DriverName = 'Datasnap'
     LoginPrompt = False
     Params.Strings = (
-      'HostName=cevaf.redirectme.net'
+      'HostName=localhost'
       'DriverUnit=Data.DBXDataSnap'
       'Port=8080'
       'CommunicationProtocol=http'
