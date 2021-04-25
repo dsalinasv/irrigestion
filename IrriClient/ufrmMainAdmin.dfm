@@ -14,7 +14,6 @@ object frmMain: TfrmMain
   Position = poDesigned
   ShowHint = True
   WindowState = wsMaximized
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object PageControl: TcxPageControl
@@ -4237,6 +4236,7 @@ object frmMain: TfrmMain
     end
   end
   object ImageList16: TcxImageList
+    SourceDPI = 96
     FormatVersion = 1
     DesignInfo = 13631888
     ImageInfo = <
@@ -5692,6 +5692,7 @@ object frmMain: TfrmMain
       end>
   end
   object ImageList32: TcxImageList
+    SourceDPI = 96
     Height = 32
     Width = 32
     FormatVersion = 1
@@ -10373,11 +10374,7 @@ object frmMain: TfrmMain
     UseSystemFont = True
     Left = 400
     Top = 160
-    DockControlHeights = (
-      0
-      0
-      0
-      0)
+    PixelsPerInch = 96
     object BarManagerBar1: TdxBar
       Caption = 'Cat'#225'logos'
       CaptionButtons = <>

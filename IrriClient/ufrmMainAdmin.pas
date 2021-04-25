@@ -8,7 +8,7 @@ uses
   cxLookAndFeelPainters, dxBarBuiltInMenu, cxContainer, cxEdit, dxRibbonSkins,
   dxRibbonCustomizationForm, dxBar, System.ImageList, Vcl.ImgList,
   System.Actions, Vcl.ActnList, cxClasses, dxRibbon, dxGDIPlusClasses, cxImage,
-  cxPC;
+  cxPC, cxImageList;
 
 type
   TfrmMain = class(TForm)
@@ -43,7 +43,6 @@ type
     procedure actAbrirVentanaExecute(Sender: TObject);
     procedure actSalirExecute(Sender: TObject);
     procedure PageControlCanClose(Sender: TObject; var ACanClose: Boolean);
-    procedure FormShow(Sender: TObject);
   private
     function CrearVentana(actAccion: TAction): TForm;
     { Private declarations }
@@ -56,7 +55,7 @@ var
 
 implementation
 
-uses ApplicationVersionHelper, StrUtils;
+uses StrUtils;
 
 {$R *.dfm}
 {$R devexpress.res}
@@ -82,12 +81,6 @@ begin
       Result.Parent:= PageControl.ActivePage;
     end;
   end;
-end;
-
-procedure TfrmMain.FormShow(Sender: TObject);
-begin
-  Caption:= Application.Version['FileDescription'] + ' ' +
-    Application.Version['FileVersion'];
 end;
 
 procedure TfrmMain.PageControlCanClose(Sender: TObject;

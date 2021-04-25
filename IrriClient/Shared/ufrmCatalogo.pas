@@ -10,7 +10,8 @@ uses
   dxRibbonCustomizationForm, System.ImageList, Vcl.ImgList, Vcl.DBActns,
   System.Actions, Vcl.ActnList, dxBar, cxClasses, dxRibbon, cxScrollBox,
   cxGridLevel, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, cxPC;
+  cxGridDBTableView, cxGrid, cxPC,
+  cxDataControllerConditionalFormattingRulesManagerDialog, cxImageList;
 
 type
   TfrmCatalogo = class(TfrmBase)

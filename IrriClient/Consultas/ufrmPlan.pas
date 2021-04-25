@@ -9,7 +9,8 @@ uses
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxCalendar, cxTextEdit,
   Data.FMTBcd, Datasnap.Provider, Data.SqlExpr, Datasnap.DBClient, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
-  cxGridCustomView, cxGrid, dxStatusBar, dxRibbonStatusBar;
+  cxGridCustomView, cxGrid, dxStatusBar, dxRibbonStatusBar,
+  cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TfrmPlan = class(TForm)

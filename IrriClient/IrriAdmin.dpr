@@ -12,11 +12,9 @@ uses
   ufrmSistemas in 'catalogos\ufrmSistemas.pas' {frmSistemas},
   ufrmUsuarios in 'catalogos\ufrmUsuarios.pas' {frmUsuarios},
   ufrmRiegosUsuarios in 'consultas\ufrmRiegosUsuarios.pas' {frmConsultaGeneral},
-  ApplicationVersionHelper in 'Shared\ApplicationVersionHelper.pas',
   ufrmBase in 'Shared\ufrmBase.pas' {frmBase},
   ufrmCatalogo in 'Shared\ufrmCatalogo.pas' {frmCatalogo},
-  ufrmSplash in 'Shared\ufrmSplash.pas' {frmSplash},
-  VersionInfo in 'Shared\VersionInfo.pas';
+  ufrmSplash in 'Shared\ufrmSplash.pas' {frmSplash};
 
 {$R *.res}
 

@@ -5,25 +5,20 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, cxContainer, cxEdit, dxGDIPlusClasses, cxClasses,
-  cxLabel, dxImageSlider;
+  cxLookAndFeelPainters, cxContainer, cxEdit, Vcl.Menus, Vcl.StdCtrls,
+  cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLabel;
 
 type
   TfrmSplash = class(TForm)
-    imgSplash: TdxImageSlider;
-    Images: TcxImageCollection;
-    IrriGranos: TcxImageCollectionItem;
-    IrriPapa: TcxImageCollectionItem;
-    IrriCana: TcxImageCollectionItem;
     lblLoad: TcxLabel;
-    IrriNogal: TcxImageCollectionItem;
-    procedure imgSplashDblClick(Sender: TObject);
+    cmbName: TcxComboBox;
+    btnElegir: TcxButton;
+    procedure btnElegirClick(Sender: TObject);
   private
     procedure SetLoad(const Value: String);
     { Private declarations }
   public
     { Public declarations }
-    function ElegirAuto(Param: String): Boolean;
     function ElegirManual: String;
   published
     property Load: String write SetLoad;
@@ -38,30 +33,13 @@ implementation
 
 { TfrmSplash }
 
-function TfrmSplash.ElegirAuto(Param: String): Boolean;
-var
-  Item: TcxImageCollectionItem;
+procedure TfrmSplash.btnElegirClick(Sender: TObject);
 begin
-  if imgSplash.Images.Items.FindItemByName(Param, Item) then
-  begin
-    imgSplash.ItemIndex:= imgSplash.Images.Items.IndexOf(Item);
-    Exit(True)
-  end
-  else
-  begin
-    Exit(False)
-  end;
+  Close;
 end;
 
 function TfrmSplash.ElegirManual: String;
 begin
-  ShowModal;
-  Exit(imgSplash.Images.Items[imgSplash.ItemIndex].Name);
-end;
-
-procedure TfrmSplash.imgSplashDblClick(Sender: TObject);
-begin
-  Close;
 end;
 
 procedure TfrmSplash.SetLoad(const Value: String);

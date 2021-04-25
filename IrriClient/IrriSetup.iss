@@ -43,10 +43,6 @@ Source: "Win64\Release\ssleay32.dll"; DestDir: "{app}"; Flags: ignoreversion; Ch
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"
-Name: "{group}\IrriGranos"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}";  Parameters: "IrriGranos"
-Name: "{group}\IrriPapa"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}";  Parameters: "IrriPapa"
-Name: "{group}\IrriNogal"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}";  Parameters: "IrriNogal"
-Name: "{group}\IrriCaña"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}";  Parameters: "IrriCana"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"; WorkingDir: "{app}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; Tasks: quicklaunchicon

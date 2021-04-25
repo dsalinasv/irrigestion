@@ -133,16 +133,13 @@ type
     procedure cdsSueloCalcFields(DataSet: TDataSet);
     procedure cdsConsultaGeneralCalcFields(DataSet: TDataSet);
   private
-    FNombre: String;
     { Private declarations }
     function GetId: String;
-    procedure SetNombre(const Value: String);
     procedure CargarDatos;
+    procedure LoadConfig;
   public
     { Public declarations }
     procedure Exportar(Grid: TcxGrid);
-  published
-    property Nombre: String read FNombre write SetNombre;
   end;
 
 var
@@ -153,8 +150,7 @@ implementation
 {$R *.dfm}
 
 uses
-  ufrmSplash, cxGridExportLink, cxGraphics, ufrmMainAdmin, Vcl.Controls,
-  ApplicationVersionHelper;
+  IniFiles, ufrmSplash, cxGridExportLink, cxGraphics, ufrmMainAdmin, Vcl.Controls;
 
 function TdmData.GetId: String;
 var
@@ -162,6 +158,26 @@ var
 begin
   CreateGuid(Guid);
   Exit(GuidToString(Guid))
+end;
+
+procedure TdmData.LoadConfig;
+var
+  names: TStringList;
+  i: byte;
+begin
+  with TIniFile.Create('./config.ini') do
+  try
+    names:= TStringList.Create;
+    cntConexion.Params.Values['HostName']:= ReadString('connection', 'host', '');
+    ReadSectionValues('databases', names);
+    for i:= 0 to Pred(names.Count) do
+    begin
+      frmSplash.cmbName.Properties.Items.Add(names.ValueFromIndex[i]);
+    end;
+  finally
+    Free;
+    names.Free;
+  end;
 end;
 
 procedure TdmData.AsignarEventos;
@@ -234,27 +250,17 @@ begin
 end;
 
 procedure TdmData.DataModuleCreate(Sender: TObject);
-const
-  HOST = 'localhost';
 begin
   try
     frmSplash:= TfrmSplash.Create(Application);
-    if frmSplash.ElegirAuto(ParamStr(1)) then
-    begin
-      Nombre:= ParamStr(1);
-    end
-    else
-    begin
-      Nombre:= frmSplash.ElegirManual;
-    end;
-    frmSplash.Show;
+    LoadConfig;
+    frmSplash.ShowModal;
     frmSplash.Load:= 'Cargando idioma español';
     cxLocalizer.Active:= true;
     cxLocalizer.Locale:= 1034;
     AsignarEventos;
-    cntConexion.Params.Values['HostName']:= HOST;
     cntConexion.Params.Values['ServerConnection']:= 'TsmModulo.GetConnection' +
-       Nombre;
+       frmSplash.cmbName.ItemIndex.ToString;
     frmSplash.Load:= 'Conectando al servidor ' + cntConexion.Params.Values['HostName'];
     cntConexion.Open;
     Screen.Cursor := crHourglass;
@@ -291,11 +297,6 @@ begin
   Abrir(cdsSuelo);
   Abrir(cdsSistema);
   Abrir(cdsCultivo);
-end;
-
-procedure TdmData.SetNombre(const Value: String);
-begin
-  FNombre := Value;
 end;
 
 end.

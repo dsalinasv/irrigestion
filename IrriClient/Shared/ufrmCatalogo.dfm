@@ -32,6 +32,10 @@ object frmCatalogo: TfrmCatalogo
     ClientRectTop = 24
     object tabListado: TcxTabSheet
       Caption = 'Listado'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grdDatos: TcxGrid
         Left = 0
         Top = 0
@@ -73,6 +77,10 @@ object frmCatalogo: TfrmCatalogo
     object tabDatos: TcxTabSheet
       Caption = 'Datos'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object ScrollBox1: TcxScrollBox
         Left = 0
         Top = 0
@@ -124,11 +132,7 @@ object frmCatalogo: TfrmCatalogo
     UseSystemFont = True
     Left = 280
     Top = 56
-    DockControlHeights = (
-      0
-      0
-      0
-      0)
+    PixelsPerInch = 96
     object dxBarManager1Bar1: TdxBar
       Caption = 'Datos'
       CaptionButtons = <>
@@ -237,6 +241,7 @@ object frmCatalogo: TfrmCatalogo
     end
   end
   object imgDatos16: TcxImageList
+    SourceDPI = 96
     FormatVersion = 1
     DesignInfo = 3670424
     ImageInfo = <
@@ -500,6 +505,7 @@ object frmCatalogo: TfrmCatalogo
       end>
   end
   object imgDatos32: TcxImageList
+    SourceDPI = 96
     Height = 32
     Width = 32
     FormatVersion = 1

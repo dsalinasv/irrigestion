@@ -340,10 +340,17 @@ type
   public
     { Public declarations }
     function Ping: boolean;
-    function GetConnectionIrriCana: TDBXConnection;
-    function GetConnectionIrriGranos: TDBXConnection;
-    function GetConnectionIrriNogal: TDBXConnection;
-    function GetConnectionIrriPapa: TDBXConnection;
+    function GetConnectionData: TDBXConnection;
+    function GetConnectionData0: TDBXConnection;
+    function GetConnectionData1: TDBXConnection;
+    function GetConnectionData2: TDBXConnection;
+    function GetConnectionData3: TDBXConnection;
+    function GetConnectionData4: TDBXConnection;
+    function GetConnectionData5: TDBXConnection;
+    function GetConnectionData6: TDBXConnection;
+    function GetConnectionData7: TDBXConnection;
+    function GetConnectionData8: TDBXConnection;
+    function GetConnectionData9: TDBXConnection;
     function GetClima(idTipo, idEstacion: String; ini, fin: TDateTime; tmin, tmax: double): TDataSet; overload;
     function GetFechaCosecha(idSiembra: String): TDateTime;
     function GetPlan(idTipo, idEstacion: String;
@@ -368,34 +375,90 @@ begin
   Exit(cntConexion.Connected);
 end;
 
-function TsmModulo.GetConnectionIrriCana: TDBXConnection;
+function TsmModulo.GetConnectionData: TDBXConnection;
 begin
   cntConexion.Close;
-  cntConexion.Params.Values['Database']:= 'C:\AppServer\CANA.FDB';
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA.FDB';
   cntConexion.Open;
   Exit(cntConexion.DBXConnection)
 end;
 
-function TsmModulo.GetConnectionIrriGranos: TDBXConnection;
+function TsmModulo.GetConnectionData0: TDBXConnection;
 begin
   cntConexion.Close;
-  cntConexion.Params.Values['Database']:= 'C:\AppServer\GRANOS.FDB';
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA0.FDB';
   cntConexion.Open;
   Exit(cntConexion.DBXConnection)
 end;
 
-function TsmModulo.GetConnectionIrriNogal: TDBXConnection;
+function TsmModulo.GetConnectionData1: TDBXConnection;
 begin
   cntConexion.Close;
-  cntConexion.Params.Values['Database']:= 'C:\AppServer\NOGAL.FDB';
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA1.FDB';
   cntConexion.Open;
   Exit(cntConexion.DBXConnection)
 end;
 
-function TsmModulo.GetConnectionIrriPapa: TDBXConnection;
+function TsmModulo.GetConnectionData2: TDBXConnection;
 begin
   cntConexion.Close;
-  cntConexion.Params.Values['Database']:= 'C:\AppServer\PAPA.FDB';
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA2.FDB';
+  cntConexion.Open;
+  Exit(cntConexion.DBXConnection)
+end;
+
+function TsmModulo.GetConnectionData3: TDBXConnection;
+begin
+  cntConexion.Close;
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA3.FDB';
+  cntConexion.Open;
+  Exit(cntConexion.DBXConnection)
+end;
+
+function TsmModulo.GetConnectionData4: TDBXConnection;
+begin
+  cntConexion.Close;
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA4.FDB';
+  cntConexion.Open;
+  Exit(cntConexion.DBXConnection)
+end;
+
+function TsmModulo.GetConnectionData5: TDBXConnection;
+begin
+  cntConexion.Close;
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA5.FDB';
+  cntConexion.Open;
+  Exit(cntConexion.DBXConnection)
+end;
+
+function TsmModulo.GetConnectionData6: TDBXConnection;
+begin
+  cntConexion.Close;
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA6.FDB';
+  cntConexion.Open;
+  Exit(cntConexion.DBXConnection)
+end;
+
+function TsmModulo.GetConnectionData7: TDBXConnection;
+begin
+  cntConexion.Close;
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA7.FDB';
+  cntConexion.Open;
+  Exit(cntConexion.DBXConnection)
+end;
+
+function TsmModulo.GetConnectionData8: TDBXConnection;
+begin
+  cntConexion.Close;
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA8.FDB';
+  cntConexion.Open;
+  Exit(cntConexion.DBXConnection)
+end;
+
+function TsmModulo.GetConnectionData9: TDBXConnection;
+begin
+  cntConexion.Close;
+  cntConexion.Params.Values['Database']:= 'C:\AppServer\DATA9.FDB';
   cntConexion.Open;
   Exit(cntConexion.DBXConnection)
 end;
@@ -554,8 +617,8 @@ begin
       end;
       while not Eof do
       begin
-        etosList.Add(TEto.Create(cdsClimaFECHA.AsDateTime, cdsClimaETO.Value));
-        tempList.Add(TTemp.Create(cdsClimaFECHA.AsDateTime, cdsClimaTMED.Value));
+        etosList.Add(TEto.Create(IncYear(cdsClimaFECHA.AsDateTime), cdsClimaETO.Value));
+        tempList.Add(TTemp.Create(IncYear(cdsClimaFECHA.AsDateTime), cdsClimaTMED.Value));
         Next;
       end;
     end;

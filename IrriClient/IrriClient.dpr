@@ -11,11 +11,9 @@ uses
   ufrmSubsistema in 'consultas\ufrmSubsistema.pas' {frmSubsistema},
   ufrmCorreos in 'consultas\ufrmCorreos.pas' {frmCorreos},
   ufrmRiegos in 'consultas\ufrmRiegos.pas' {frmRiegos},
-  ApplicationVersionHelper in 'Shared\ApplicationVersionHelper.pas',
   ufrmBase in 'Shared\ufrmBase.pas' {frmBase},
   ufrmCatalogo in 'Shared\ufrmCatalogo.pas' {frmCatalogo},
   ufrmSplash in 'Shared\ufrmSplash.pas' {frmSplash},
-  VersionInfo in 'Shared\VersionInfo.pas',
   ufrmEstratos in 'Consultas\ufrmEstratos.pas' {frmEstratos},
   ufrmSuelo in 'Consultas\ufrmSuelo.pas' {frmSuelo},
   ufrmPlan in 'Consultas\ufrmPlan.pas' {frmPlan};

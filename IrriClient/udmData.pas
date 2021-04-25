@@ -3,7 +3,7 @@ unit udmData;
 interface
 
 uses
-  Forms, Windows, SysUtils, Classes, WideStrings, DbxDatasnap, DBClient,
+  SysUtils, Classes, WideStrings, DbxDatasnap, DBClient,
   DSConnect, DB, SqlExpr, IOUtils, IPPeerClient, Data.DBXCommon,
   Data.DbxHTTPLayer, Data.FMTBcd, cxGrid,
   Datasnap.Provider, Vcl.Dialogs,  cxClasses,
@@ -223,11 +223,10 @@ type
     procedure cdsConsultaUsuarioCalcFields(DataSet: TDataSet);
     procedure cdsEstratosCalcFields(DataSet: TDataSet);
   private
-    FNombre: String;
     { Private declarations }
     function GetId: String;
     procedure CargarDatos;
-    procedure SetNombre(const Value: String);
+    procedure LoadConfig;
   public
     { Public declarations }
     function VerificaLogin(TempUser, TempPassword: String): integer;
@@ -235,8 +234,6 @@ type
     procedure Login;
     procedure ConsultarRiegos;
     procedure ConsultarClima(ini,fin: TDate);
-  published
-    property Nombre: String read FNombre write SetNombre;
   end;
 
 var
@@ -247,8 +244,7 @@ implementation
 {$R *.dfm}
 {$R devexpress.res}
 
-uses ufrmSplash, cxGridExportLink, WinInet, Vcl.Controls,
-  ApplicationVersionHelper;
+uses Windows, Forms, IniFiles, ufrmSplash, cxGridExportLink, Vcl.Controls;
 
 function TdmData.GetId: String;
 var
@@ -289,7 +285,7 @@ procedure TdmData.cdsReconcileError(DataSet: TCustomClientDataSet;
       var Action: TReconcileAction);
 begin
   inherited;
-  Application.MessageBox(PChar(E.Message),'Error',MB_OK + MB_ICONERROR);
+  Application.MessageBox(PChar(E.Message), 'Error', MB_OK + MB_ICONERROR);
 end;
 
 procedure TdmData.cdsRiegoCalcFields(DataSet: TDataSet);
@@ -388,78 +384,38 @@ begin
   Abrir(cdsCultivo, 'Cargando cultivos');
 end;
 
-procedure TdmData.DataModuleCreate(Sender: TObject);
-function DescargarArchivo( sURL, sArchivoLocal: String ): boolean;
-const BufferSize = 1024;
+procedure TdmData.LoadConfig;
 var
-  hSession, hURL: HInternet;
-  Buffer: array[1..BufferSize] of Byte;
-  LongitudBuffer: DWORD;
-  F: File;
-  sMiPrograma: String;
+  names: TStringList;
+  i: byte;
 begin
-  sMiPrograma := ExtractFileName( Application.ExeName );
-  hSession := InternetOpen( PChar( sMiPrograma ), INTERNET_OPEN_TYPE_PRECONFIG, nil, nil, 0 );
-
+  with TIniFile.Create('./config.ini') do
   try
-    hURL := InternetOpenURL( hSession, PChar( sURL ), nil, 0, 0, 0 );
-
-    try
-      AssignFile( F, sArchivoLocal );
-      Rewrite( F, 1 );
-
-      repeat
-        InternetReadFile( hURL, @Buffer, SizeOf( Buffer ), LongitudBuffer );
-        BlockWrite( F, Buffer, LongitudBuffer );
-      until LongitudBuffer = 0;
-
-      CloseFile( F );
-      Result := True;
-    finally
-      InternetCloseHandle( hURL );
-    end
-  finally
-    InternetCloseHandle( hSession );
-  end
-end;
-var
-  sVersion: String;
-const
-  HOST = 'cevaf.redirectme.net';
-begin
-  sVersion:= TPath.GetHomePath + TPath.DirectorySeparatorChar + 'IrriVersion.txt';
-  DescargarArchivo('http://cevaf.redirectme.net/userContent/IrriVersion.txt?d='+
-    DateTimeToStr(Now), sVersion);
-  with TStringList.Create do
-  try
-    LoadFromFile(sVersion);
-    if Application.Version['FileVersion'] <> Values['FileVersion'] then
+    names:= TStringList.Create;
+    cntConexion.Params.Values['HostName']:= ReadString('connection', 'host', '');
+    ReadSectionValues('databases', names);
+    for i:= 0 to Pred(names.Count) do
     begin
-      ShowMessage('Ya esta disponible la versión ' + Values['FileVersion'] +
-        ' tu versión actual es la ' + Application.Version['FileVersion'] +
-        #13+#10 + ' puedes descargarla de http://cevaf.redirectme.net/userContent');
+      frmSplash.cmbName.Properties.Items.Add(names.ValueFromIndex[i]);
     end;
   finally
     Free;
+    names.Free;
   end;
+end;
+
+procedure TdmData.DataModuleCreate(Sender: TObject);
+begin
   try
     frmSplash:= TfrmSplash.Create(Application);
-    if frmSplash.ElegirAuto(ParamStr(1)) then
-    begin
-      Nombre:= ParamStr(1);
-    end
-    else
-    begin
-      Nombre:= frmSplash.ElegirManual;
-    end;
-    frmSplash.Show;
+    LoadConfig;
+    frmSplash.ShowModal;
     frmSplash.Load:= 'Cargando idioma español';
     cxLocalizer.Active:= true;
     cxLocalizer.Locale:= 1034;
     AsignarEventos;
-    cntConexion.Params.Values['HostName']:= HOST;
-    cntConexion.Params.Values['ServerConnection']:= 'TsmModulo.GetConnection' +
-      Nombre;
+    cntConexion.Params.Values['ServerConnection']:= 'TsmModulo.GetConnectionData' +
+      frmSplash.cmbName.ItemIndex.ToString;
     frmSplash.Load:= 'Conectando al servidor ' + cntConexion.Params.Values['HostName'];
     cntConexion.Open;
     Screen.Cursor := crHourglass;
@@ -491,11 +447,6 @@ begin
   cdsUsuario.Close;
   cdsUsuario.Params.ParamByName('ID_USUARIO').Value:= cdsUserID_USUARIO.Value;
   cdsUsuario.Open;
-end;
-
-procedure TdmData.SetNombre(const Value: String);
-begin
-  FNombre := Value;
 end;
 
 function TdmData.VerificaLogin(TempUser, TempPassword: String): integer;

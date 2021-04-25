@@ -14,7 +14,8 @@ uses
   cxGridDBTableView, Vcl.ImgList, Vcl.DBActns, System.Actions, dxBar, dxRibbon,
   cxScrollBox, cxGridLevel, cxGridCustomView, cxGrid, cxPC, dxBarBuiltInMenu,
   dxRibbonCustomizationForm, System.ImageList, dxStatusBar, dxRibbonStatusBar,
-  cxLookAndFeelPainters, Vcl.ExtCtrls;
+  cxLookAndFeelPainters, Vcl.ExtCtrls,
+  cxDataControllerConditionalFormattingRulesManagerDialog, cxImageList;
 
 type
   TfrmMain = class(TfrmCatalogo)
@@ -110,7 +111,6 @@ type
     procedure actEnviarExecute(Sender: TObject);
     procedure actPlanExecute(Sender: TObject);
     procedure actRiegosExecute(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure actSalirExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure actPluviometrosExecute(Sender: TObject);
@@ -123,7 +123,7 @@ var
 
 implementation
 
-uses ApplicationVersionHelper, udmData, cxLookupDBGrid, ufrmClima, ufrmSubsistema, ufrmCorreos,
+uses udmData, cxLookupDBGrid, ufrmClima, ufrmSubsistema, ufrmCorreos,
   ufrmRiegos, ufrmLogin, ufrmPluviometros, ufrmEstratos, ufrmPlan;
 
 {$R *.dfm}
@@ -368,12 +368,6 @@ begin
   inherited;
   cmbTipo.DroppedDown:= True;
   cmbTipo.DroppedDown:= False;
-end;
-
-procedure TfrmMain.FormShow(Sender: TObject);
-begin
-  Caption:= Application.Version['FileDescription'] + ' ' +
-    Application.Version['FileVersion'];
 end;
 
 procedure TfrmMain.RevisarCambios;
