@@ -1,20 +1,12 @@
 inherited frmCiclos: TfrmCiclos
   Caption = 'Ciclos'
-  ExplicitWidth = 608
-  ExplicitHeight = 604
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcDatos: TcxPageControl
+    LookAndFeel.SkinName = ''
     inherited tabListado: TcxTabSheet
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 583
-      ExplicitHeight = 408
       inherited grdDatos: TcxGrid
-        Width = 583
-        Height = 408
-        ExplicitWidth = 583
-        ExplicitHeight = 408
+        LookAndFeel.SkinName = ''
         inherited grdDatosDBTableView1: TcxGridDBTableView
           DataController.DataSource = dmData.dsCiclo
           object grdDatosDBTableView1NOMBRE: TcxGridDBColumn
@@ -26,15 +18,7 @@ inherited frmCiclos: TfrmCiclos
       end
     end
     inherited tabDatos: TcxTabSheet
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 583
-      ExplicitHeight = 408
       inherited ScrollBox1: TcxScrollBox
-        Width = 583
-        Height = 408
-        ExplicitWidth = 583
-        ExplicitHeight = 408
         object cxLabel1: TcxLabel
           Left = 3
           Top = 3
@@ -59,11 +43,7 @@ inherited frmCiclos: TfrmCiclos
     end
   end
   inherited barManager: TdxBarManager
-    DockControlHeights = (
-      0
-      0
-      0
-      0)
+    PixelsPerInch = 96
     inherited dxBarManager1Bar1: TdxBar
       DockedDockControl = nil
       DockedDockingStyle = dsNone

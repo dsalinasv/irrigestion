@@ -9,11 +9,13 @@ uses
   cxGridTableView, cxGridDBTableView, cxTextEdit, cxDBEdit, cxLabel,
   cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxPC,
   cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
-  dxSkinOffice2007Blue, dxSkinscxPCPainter, cxPCdxBarPopupMenu, cxStyles,
+  dxSkinscxPCPainter, cxPCdxBarPopupMenu, cxStyles,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxDBData, cxScrollBox,
   dxRibbonSkins, dxSkinsdxRibbonPainter, dxSkinsdxBarPainter, Vcl.ImgList,
   Vcl.DBActns, System.Actions, Vcl.ActnList, dxBar, dxRibbon, dxBarBuiltInMenu,
-  dxRibbonCustomizationForm;
+  dxRibbonCustomizationForm,
+  cxDataControllerConditionalFormattingRulesManagerDialog, System.ImageList,
+  cxImageList;
 
 type
   TfrmCiclos = class(TfrmCatalogo)

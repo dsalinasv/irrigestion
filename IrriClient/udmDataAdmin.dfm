@@ -422,12 +422,6 @@ object dmData: TdmData
       FieldName = 'dtsTipos'
     end
   end
-  object dxSkinController: TdxSkinController
-    NativeStyle = False
-    SkinName = 'Office2007Blue'
-    Left = 158
-    Top = 16
-  end
   object opnDialog: TOpenDialog
     Filter = 'CSV delimitado por comas (.csv)|*.csv'
     Left = 286

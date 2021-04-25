@@ -2,22 +2,14 @@ inherited frmSuelos: TfrmSuelos
   Left = 255
   Top = 201
   Caption = 'Suelos'
-  ExplicitWidth = 600
-  ExplicitHeight = 600
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcDatos: TcxPageControl
+    LookAndFeel.SkinName = ''
     inherited tabListado: TcxTabSheet
       Caption = 'Clases'
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 583
-      ExplicitHeight = 418
       inherited grdDatos: TcxGrid
-        Width = 583
-        Height = 418
-        ExplicitWidth = 583
-        ExplicitHeight = 418
+        LookAndFeel.SkinName = ''
         inherited grdDatosDBTableView1: TcxGridDBTableView
           DataController.DataSource = dmData.dsSuelo
           object grdDatosDBTableView1NOMBRE: TcxGridDBColumn
@@ -29,15 +21,7 @@ inherited frmSuelos: TfrmSuelos
       end
     end
     inherited tabDatos: TcxTabSheet
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 583
-      ExplicitHeight = 418
       inherited ScrollBox1: TcxScrollBox
-        Width = 583
-        Height = 418
-        ExplicitWidth = 583
-        ExplicitHeight = 418
         object cxDBLabel1: TcxDBLabel
           Left = -1
           Top = 168
@@ -136,14 +120,12 @@ inherited frmSuelos: TfrmSuelos
     end
   end
   inherited barManager: TdxBarManager
-    DockControlHeights = (
-      0
-      0
-      0
-      0)
+    PixelsPerInch = 96
     inherited dxBarManager1Bar1: TdxBar
-      FloatClientWidth = 58
-      FloatClientHeight = 208
+      DockedDockControl = nil
+      DockedDockingStyle = dsNone
+      FloatClientWidth = 65
+      FloatClientHeight = 324
     end
   end
   inherited imgDatos16: TcxImageList

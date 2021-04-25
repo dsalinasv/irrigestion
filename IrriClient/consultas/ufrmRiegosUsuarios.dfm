@@ -15,21 +15,24 @@ object frmConsultaGeneral: TfrmConsultaGeneral
   TextHeight = 13
   object ScrollBox1: TcxScrollBox
     Left = 0
-    Top = 126
+    Top = 122
     Width = 680
-    Height = 321
+    Height = 325
     Align = alClient
     TabOrder = 0
+    ExplicitTop = 126
+    ExplicitHeight = 321
     object cxGrid1: TcxGrid
       Left = 0
       Top = 0
       Width = 678
-      Height = 319
+      Height = 323
       Align = alClient
       TabOrder = 0
+      ExplicitHeight = 319
       object cxGrid1DBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
-        DataController.DataSource = dmData.dsConsultaGeneral
+        DataController.DataSource = dmData.dsConsultaUsuario
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <
           item
@@ -216,11 +219,12 @@ object frmConsultaGeneral: TfrmConsultaGeneral
     Left = 0
     Top = 0
     Width = 680
-    Height = 126
+    Height = 122
     BarManager = dxBarManager1
-    ColorSchemeName = 'Blue'
+    Style = rs2016
+    ColorSchemeName = 'White'
     Contexts = <>
-    TabOrder = 5
+    TabOrder = 1
     TabStop = False
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
@@ -250,11 +254,7 @@ object frmConsultaGeneral: TfrmConsultaGeneral
     UseSystemFont = True
     Left = 312
     Top = 168
-    DockControlHeights = (
-      0
-      0
-      0
-      0)
+    PixelsPerInch = 96
     object dxBarManager1Bar1: TdxBar
       Caption = 'ETo'
       CaptionButtons = <>
@@ -284,19 +284,20 @@ object frmConsultaGeneral: TfrmConsultaGeneral
       Category = 0
       Hint = 'Consultar'
       Visible = ivAlways
-      LargeImageIndex = 0
       OnClick = dxBarLargeButton1Click
+      LargeImageIndex = 0
     end
     object dxBarLargeButton2: TdxBarLargeButton
       Caption = 'Exportar a excel'
       Category = 0
       Hint = 'Exportar a excel'
       Visible = ivAlways
-      LargeImageIndex = 1
       OnClick = dxBarLargeButton2Click
+      LargeImageIndex = 1
     end
   end
   object ImageList16: TcxImageList
+    SourceDPI = 96
     FormatVersion = 1
     DesignInfo = 15204624
     ImageInfo = <
@@ -376,6 +377,7 @@ object frmConsultaGeneral: TfrmConsultaGeneral
       end>
   end
   object ImageList32: TcxImageList
+    SourceDPI = 96
     Height = 32
     Width = 32
     FormatVersion = 1

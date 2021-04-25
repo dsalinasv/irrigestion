@@ -10,10 +10,12 @@ uses
   cxGridTableView, cxGridDBTableView, cxDBNavigator, cxLabel,
   cxTextEdit, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxPC,
   cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
-  dxSkinOffice2007Blue, dxSkinscxPCPainter, cxPCdxBarPopupMenu, cxStyles,
+  dxSkinscxPCPainter, cxPCdxBarPopupMenu, cxStyles,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxDBData, cxScrollBox,
   dxRibbonSkins, dxSkinsdxRibbonPainter, dxSkinsdxBarPainter, Vcl.ImgList,
-  Vcl.DBActns, System.Actions, Vcl.ActnList, dxBar, dxRibbon;
+  Vcl.DBActns, System.Actions, Vcl.ActnList, dxBar, dxRibbon, dxBarBuiltInMenu,
+  cxDataControllerConditionalFormattingRulesManagerDialog,
+  dxRibbonCustomizationForm, System.ImageList, cxImageList;
 
 type
   TfrmSuelos = class(TfrmCatalogo)

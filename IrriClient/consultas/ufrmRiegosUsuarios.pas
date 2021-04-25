@@ -6,13 +6,15 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DateUtils, Generics.Collections, cxGraphics, cxControls,
   cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinsCore,
-  dxSkinOffice2007Blue, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
+  dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, dxRibbonSkins,
   dxSkinsdxRibbonPainter, Data.FMTBcd, dxSkinsdxBarPainter, Vcl.ImgList, dxBar,
   Data.SqlExpr, Datasnap.Provider, Datasnap.DBClient, cxClasses, dxRibbon,
   cxGridLevel, cxGridChartView, cxGridDBChartView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGridCustomView, cxGrid, cxScrollBox,
-  dxRibbonCustomizationForm;
+  dxRibbonCustomizationForm,
+  cxDataControllerConditionalFormattingRulesManagerDialog, System.ImageList,
+  cxImageList;
 
 type
   TfrmConsultaGeneral = class(TForm)

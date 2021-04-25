@@ -5,9 +5,8 @@ interface
 uses
   Forms, Windows, SysUtils, Classes, WideStrings, DbxDatasnap, DBClient,
   DSConnect, DB, SqlExpr, IOUtils, IPPeerClient, Data.DBXCommon,
-  Data.DbxHTTPLayer, Data.FMTBcd, cxLocalization, Vcl.ExtCtrls, cxGrid,
-  cxLookAndFeels, dxSkinsForm, Vcl.Dialogs, dxSkinsCore, dxSkinOffice2007Blue,
-  cxClasses;
+  Data.DbxHTTPLayer, Data.FMTBcd, cxLocalization, Vcl.ExtCtrls, Vcl.Dialogs,
+  cxClasses, cxGrid;
 
 type
   TdmData = class(TDataModule)
@@ -83,7 +82,6 @@ type
     cdsFenologiaDGC: TFloatField;
     cdsFenologiaID_TIPO: TStringField;
     cdsTipoKCO: TFloatField;
-    dxSkinController: TdxSkinController;
     opnDialog: TOpenDialog;
     dsUsuario: TDataSource;
     cdsUsuario: TClientDataSet;
@@ -174,6 +172,7 @@ begin
     begin
       frmSplash.cmbName.Properties.Items.Add(names.ValueFromIndex[i]);
     end;
+    frmSplash.cmbName.ItemIndex:= 0;
   finally
     Free;
     names.Free;
@@ -259,7 +258,7 @@ begin
     cxLocalizer.Active:= true;
     cxLocalizer.Locale:= 1034;
     AsignarEventos;
-    cntConexion.Params.Values['ServerConnection']:= 'TsmModulo.GetConnection' +
+    cntConexion.Params.Values['ServerConnection']:= 'TsmModulo.GetConnectionData' +
        frmSplash.cmbName.ItemIndex.ToString;
     frmSplash.Load:= 'Conectando al servidor ' + cntConexion.Params.Values['HostName'];
     cntConexion.Open;

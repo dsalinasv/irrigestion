@@ -1,26 +1,21 @@
 inherited frmSistemas: TfrmSistemas
   Caption = 'Sistemas de riego'
   ClientHeight = 665
-  ExplicitTop = -163
-  ExplicitWidth = 608
-  ExplicitHeight = 703
+  ExplicitHeight = 704
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcDatos: TcxPageControl
-    Height = 539
-    ExplicitHeight = 539
-    ClientRectBottom = 533
+    Height = 543
+    LookAndFeel.SkinName = ''
+    ExplicitHeight = 543
+    ClientRectBottom = 539
     inherited tabListado: TcxTabSheet
       Caption = 'Sistema'
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 583
-      ExplicitHeight = 507
+      ExplicitHeight = 515
       inherited grdDatos: TcxGrid
-        Width = 583
-        Height = 507
-        ExplicitWidth = 583
-        ExplicitHeight = 507
+        Height = 515
+        LookAndFeel.SkinName = ''
+        ExplicitHeight = 515
         inherited grdDatosDBTableView1: TcxGridDBTableView
           DataController.DataSource = dmData.dsSistema
           object grdDatosDBTableView1NOMBRE: TcxGridDBColumn
@@ -33,15 +28,10 @@ inherited frmSistemas: TfrmSistemas
     end
     inherited tabDatos: TcxTabSheet
       Caption = 'Subsistema'
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 583
-      ExplicitHeight = 507
+      ExplicitHeight = 515
       inherited ScrollBox1: TcxScrollBox
-        Width = 583
-        Height = 507
-        ExplicitWidth = 583
-        ExplicitHeight = 507
+        Height = 515
+        ExplicitHeight = 515
         object cxDBTextEdit1: TcxDBTextEdit
           Left = 2
           Top = 26
@@ -138,11 +128,7 @@ inherited frmSistemas: TfrmSistemas
     end
   end
   inherited barManager: TdxBarManager
-    DockControlHeights = (
-      0
-      0
-      0
-      0)
+    PixelsPerInch = 96
     inherited dxBarManager1Bar1: TdxBar
       DockedDockControl = nil
       DockedDockingStyle = dsNone

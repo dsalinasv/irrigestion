@@ -4,7 +4,6 @@ inherited frmCultivos: TfrmCultivos
   Caption = 'Cultivos'
   ClientWidth = 640
   ExplicitWidth = 656
-  ExplicitHeight = 604
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcDatos: TcxPageControl
@@ -16,13 +15,14 @@ inherited frmCultivos: TfrmCultivos
     Properties.ActivePage = tabDatos
     LookAndFeel.SkinName = ''
     ExplicitWidth = 640
-    ClientRectRight = 640
+    ClientRectRight = 636
     inherited tabListado: TcxTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ExplicitTop = 24
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 640
       ExplicitHeight = 420
       inherited grdDatos: TcxGrid
@@ -50,18 +50,14 @@ inherited frmCultivos: TfrmCultivos
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ExplicitTop = 24
-      ExplicitWidth = 640
-      ExplicitHeight = 420
+      ExplicitWidth = 632
       inherited ScrollBox1: TcxScrollBox
-        Width = 640
-        Height = 420
+        Width = 632
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        ExplicitWidth = 640
-        ExplicitHeight = 420
+        ExplicitWidth = 632
         object cxLabel1: TcxLabel
           Left = 3
           Top = 49
@@ -348,11 +344,7 @@ inherited frmCultivos: TfrmCultivos
     end
   end
   inherited barManager: TdxBarManager
-    DockControlHeights = (
-      0
-      0
-      0
-      0)
+    PixelsPerInch = 96
     inherited dxBarManager1Bar1: TdxBar
       FloatClientWidth = 65
       FloatClientHeight = 324

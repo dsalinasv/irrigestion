@@ -10,11 +10,12 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxDBNavigator,
   cxLabel, cxTextEdit, cxGridLevel, cxClasses, cxGridCustomView,
   cxGrid, cxPC, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
-  dxSkinOffice2007Blue, dxSkinscxPCPainter, cxPCdxBarPopupMenu, cxStyles,
+  dxSkinscxPCPainter, cxPCdxBarPopupMenu, cxStyles,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxDBData, cxDBLookupComboBox,
   cxScrollBox, dxRibbonSkins, dxSkinsdxRibbonPainter, dxSkinsdxBarPainter,
   Vcl.ImgList, Vcl.DBActns, System.Actions, dxBar, dxRibbon, dxBarBuiltInMenu,
-  dxRibbonCustomizationForm, System.ImageList;
+  dxRibbonCustomizationForm, System.ImageList,
+  cxDataControllerConditionalFormattingRulesManagerDialog, cxImageList;
 
 type
   TfrmCultivos = class(TfrmCatalogo)

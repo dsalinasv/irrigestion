@@ -398,6 +398,7 @@ begin
     begin
       frmSplash.cmbName.Properties.Items.Add(names.ValueFromIndex[i]);
     end;
+    frmSplash.cmbName.ItemIndex:= 0;
   finally
     Free;
     names.Free;
