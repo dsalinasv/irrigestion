@@ -9,7 +9,8 @@ uses
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxButtonEdit,
   Vcl.Menus, cxContainer, cxLabel, cxDBLabel, Vcl.StdCtrls, cxButtons,
   cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxClasses, cxGridCustomView, cxGrid;
+  cxClasses, cxGridCustomView, cxGrid,
+  cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TfrmEstratos = class(TForm)

@@ -382,6 +382,7 @@ begin
   Abrir(cdsSuelo, 'Cargando texturas de suelos');
   Abrir(cdsSistema, 'Cargando sistemas de riego');
   Abrir(cdsCultivo, 'Cargando cultivos');
+  cdsEstratos.CreateDataSet;
 end;
 
 procedure TdmData.LoadConfig;

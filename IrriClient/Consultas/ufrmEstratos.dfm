@@ -96,6 +96,7 @@ object frmEstratos: TfrmEstratos
     Left = 321
     Top = 23
     DataBinding.DataField = 'CC_POND'
+    DataBinding.DataSource = dmData.dsEstratos
     Height = 21
     Width = 72
   end
@@ -103,6 +104,7 @@ object frmEstratos: TfrmEstratos
     Left = 321
     Top = 65
     DataBinding.DataField = 'PMP_POND'
+    DataBinding.DataSource = dmData.dsEstratos
     Height = 21
     Width = 72
   end
@@ -120,6 +122,7 @@ object frmEstratos: TfrmEstratos
     Left = 321
     Top = 107
     DataBinding.DataField = 'SAT_POND'
+    DataBinding.DataSource = dmData.dsEstratos
     Height = 21
     Width = 72
   end
@@ -137,6 +140,7 @@ object frmEstratos: TfrmEstratos
     Left = 321
     Top = 149
     DataBinding.DataField = 'HA_POND'
+    DataBinding.DataSource = dmData.dsEstratos
     Height = 21
     Width = 72
   end
