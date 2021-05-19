@@ -600,6 +600,7 @@ var
   etosList: TList<TEto>;
   I: Integer;
   eto: TEto;
+  fecha: TDateTime;
 begin
   etosList := TList<TEto>.Create;
   try
@@ -617,8 +618,12 @@ begin
       end;
       while not Eof do
       begin
-        etosList.Add(TEto.Create(IncYear(cdsClimaFECHA.AsDateTime), cdsClimaETO.Value));
-        tempList.Add(TTemp.Create(IncYear(cdsClimaFECHA.AsDateTime), cdsClimaTMED.Value));
+        if Dias = 0 then
+          fecha:= IncYear(cdsClimaFECHA.AsDateTime)
+        else
+          fecha:= cdsClimaFecha.AsDateTime;
+        etosList.Add(TEto.Create(fecha, cdsClimaETO.Value));
+        tempList.Add(TTemp.Create(fecha, cdsClimaTMED.Value));
         Next;
       end;
     end;
