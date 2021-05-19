@@ -618,7 +618,7 @@ begin
       end;
       while not Eof do
       begin
-        if Dias = 0 then
+        if dias = -1 then
           fecha:= IncYear(cdsClimaFECHA.AsDateTime)
         else
           fecha:= cdsClimaFecha.AsDateTime;
@@ -627,20 +627,23 @@ begin
         Next;
       end;
     end;
-    with qryAvg do
+    if dias > 0 then
     begin
-      Close;
-      ParamByName('ID_ESTACION').AsString:= idEstacion;
-      ParamByName('INI').AsDate:= IncDay(cdsClimaFECHA.AsDateTime, -7);
-      ParamByName('FIN').AsDate:= cdsClimaFECHA.AsDateTime;
-      Open;
-      avgEto := qryAvgETO.Value;
-      avgTemp := qryAvgTMED.Value;
-    end;
-    for I := 0 to Pred(dias) do
-    begin
-      etosList.Add(TEto.Create(IncDay(Date, I), avgEto));
-      tempList.Add(TTemp.Create(IncDay(Date, I), avgTemp));
+      with qryAvg do
+      begin
+        Close;
+        ParamByName('ID_ESTACION').AsString:= idEstacion;
+        ParamByName('INI').AsDate:= IncDay(cdsClimaFECHA.AsDateTime, -7);
+        ParamByName('FIN').AsDate:= cdsClimaFECHA.AsDateTime;
+        Open;
+        avgEto := qryAvgETO.Value;
+        avgTemp := qryAvgTMED.Value;
+      end;
+      for I := 0 to Pred(dias) do
+      begin
+        etosList.Add(TEto.Create(IncDay(Date, I), avgEto));
+        tempList.Add(TTemp.Create(IncDay(Date, I), avgTemp));
+      end;
     end;
     for eto in etosList do
       etos.AddOrSetValue(FormatDateTime(FORMATO, eto.fecha), eto.valor);
@@ -724,7 +727,7 @@ begin
   etos := TDictionary<String, double>.Create;
   tempList := TList<TTemp>.Create;
   try
-    if GetHistoricos(etos, tempList, idEstacion, fechaSiembra, 0) then
+    if GetHistoricos(etos, tempList, idEstacion, fechaSiembra, -1) then
     begin
       cdsPrediccionesMENSAJE.AsString := 'No hay clima';
       cdsPredicciones.Post;
