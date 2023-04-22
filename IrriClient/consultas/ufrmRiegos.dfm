@@ -21,196 +21,164 @@ object frmRiegos: TfrmRiegos
     Height = 325
     Align = alClient
     TabOrder = 0
-    object cxGrid1: TcxGrid
+    object cxDBPivotGrid1: TcxDBPivotGrid
       Left = 0
       Top = 0
       Width = 678
-      Height = 323
+      Height = 123
       Align = alClient
+      DataSource = dmData.dsConsultaUsuario
+      Groups = <>
       TabOrder = 0
-      object cxGrid1DBTableView1: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        DataController.DataSource = dmData.dsConsultaUsuario
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <
-          item
-            Kind = skSum
-            FieldName = 'HORAS'
-            Column = cxGrid1DBTableView1HORAS
-          end
-          item
-            Kind = skSum
-            FieldName = 'AVANCE'
-            Column = cxGrid1DBTableView1AVANCE
-          end
-          item
-            Kind = skSum
-            FieldName = 'GASTO'
-            Column = cxGrid1DBTableView1GASTO
-          end
-          item
-            Kind = skAverage
-            FieldName = 'LAMINA'
-            Column = cxGrid1DBTableView1LAMINA
-          end
-          item
-            Kind = skSum
-            FieldName = 'VOLUMEN'
-            Column = cxGrid1DBTableView1VOLUMEN
-          end
-          item
-            Kind = skAverage
-            FieldName = 'LAMINA_BRUTA'
-            Column = cxGrid1DBTableView1LAMINA_BRUTA
-          end
-          item
-            Kind = skAverage
-            FieldName = 'EA'
-            Column = cxGrid1DBTableView1EA
-          end
-          item
-            Kind = skAverage
-            FieldName = 'ProdAgua'
-            Column = cxGrid1DBTableView1ProdAgua
-          end>
-        DataController.Summary.SummaryGroups = <>
-        OptionsBehavior.AlwaysShowEditor = True
-        OptionsData.CancelOnExit = False
-        OptionsData.Deleting = False
-        OptionsData.DeletingConfirmation = False
-        OptionsData.Editing = False
-        OptionsData.Inserting = False
-        OptionsView.Footer = True
-        OptionsView.GroupByBox = False
-        object cxGrid1DBTableView1USUSARIO: TcxGridDBColumn
-          DataBinding.FieldName = 'USUSARIO'
-        end
-        object cxGrid1DBTableView1PARCELA: TcxGridDBColumn
-          DataBinding.FieldName = 'PARCELA'
-        end
-        object cxGrid1DBTableView1UBICACION: TcxGridDBColumn
-          DataBinding.FieldName = 'UBICACION'
-        end
-        object cxGrid1DBTableView1ESTACION: TcxGridDBColumn
-          DataBinding.FieldName = 'ESTACION'
-        end
-        object cxGrid1DBTableView1SIEMBRA: TcxGridDBColumn
-          DataBinding.FieldName = 'SIEMBRA'
-        end
-        object cxGrid1DBTableView1FECHA: TcxGridDBColumn
-          DataBinding.FieldName = 'FECHA'
-        end
-        object cxGrid1DBTableView1RENDIMIENTO: TcxGridDBColumn
-          DataBinding.FieldName = 'RENDIMIENTO'
-        end
-        object cxGrid1DBTableView1CULTIVO: TcxGridDBColumn
-          DataBinding.FieldName = 'CULTIVO'
-        end
-        object cxGrid1DBTableView1CICLO: TcxGridDBColumn
-          DataBinding.FieldName = 'CICLO'
-        end
-        object cxGrid1DBTableView1VARIEDAD: TcxGridDBColumn
-          DataBinding.FieldName = 'VARIEDAD'
-        end
-        object cxGrid1DBTableView1TIPO: TcxGridDBColumn
-          DataBinding.FieldName = 'TIPO'
-        end
-        object cxGrid1DBTableView1INI: TcxGridDBColumn
-          DataBinding.FieldName = 'INI'
-        end
-        object cxGrid1DBTableView1HORAS: TcxGridDBColumn
-          DataBinding.FieldName = 'HORAS'
-        end
-        object cxGrid1DBTableView1AVANCE: TcxGridDBColumn
-          DataBinding.FieldName = 'AVANCE'
-        end
-        object cxGrid1DBTableView1GASTO: TcxGridDBColumn
-          DataBinding.FieldName = 'GASTO'
-        end
-        object cxGrid1DBTableView1VOLUMEN: TcxGridDBColumn
-          DataBinding.FieldName = 'VOLUMEN'
-        end
-        object cxGrid1DBTableView1LAMINA: TcxGridDBColumn
-          DataBinding.FieldName = 'LAMINA'
-        end
-        object cxGrid1DBTableView1LAMINA_BRUTA: TcxGridDBColumn
-          DataBinding.FieldName = 'LAMINA_BRUTA'
-        end
-        object cxGrid1DBTableView1EA: TcxGridDBColumn
-          DataBinding.FieldName = 'EA'
-        end
-        object cxGrid1DBTableView1ProdAgua: TcxGridDBColumn
-          DataBinding.FieldName = 'ProdAgua'
-        end
+      object AVANCE: TcxDBPivotGridField
+        AreaIndex = 16
+        DataBinding.FieldName = 'AVANCE'
+        Visible = True
+        UniqueName = 'Superficie (ha)'
       end
-      object cxGrid1DBChartView1: TcxGridDBChartView
-        DataController.DetailKeyFieldNames = 'FECHAHORA'
+      object CICLO: TcxDBPivotGridField
+        AreaIndex = 0
+        DataBinding.FieldName = 'CICLO'
+        Visible = True
+        UniqueName = 'Ciclo agr'#237'cola'
+      end
+      object CULTIVO: TcxDBPivotGridField
+        Area = faColumn
+        AreaIndex = 0
+        DataBinding.FieldName = 'CULTIVO'
+        Visible = True
+        UniqueName = 'Cultivo'
+      end
+      object EA: TcxDBPivotGridField
+        AreaIndex = 1
+        DataBinding.FieldName = 'EA'
+        Visible = True
+        UniqueName = 'EA'
+      end
+      object FECHA: TcxDBPivotGridField
+        AreaIndex = 2
+        DataBinding.FieldName = 'FECHA'
+        Visible = True
+        UniqueName = 'Fecha de siembra'
+      end
+      object GASTO: TcxDBPivotGridField
+        AreaIndex = 3
+        DataBinding.FieldName = 'GASTO'
+        Visible = True
+        UniqueName = 'Q (lps)'
+      end
+      object HORAS: TcxDBPivotGridField
+        AreaIndex = 4
+        DataBinding.FieldName = 'HORAS'
+        Visible = True
+        UniqueName = 'Horas'
+      end
+      object INI: TcxDBPivotGridField
+        AreaIndex = 5
+        DataBinding.FieldName = 'INI'
+        Visible = True
+        UniqueName = 'Inicio'
+      end
+      object LAMINA: TcxDBPivotGridField
+        AreaIndex = 6
+        DataBinding.FieldName = 'LAMINA'
+        Visible = True
+        UniqueName = 'Ln (cm)'
+      end
+      object LAMINA_BRUTA: TcxDBPivotGridField
+        AreaIndex = 7
+        DataBinding.FieldName = 'LAMINA_BRUTA'
+        Visible = True
+        UniqueName = 'Lb (cm)'
+      end
+      object PARCELA: TcxDBPivotGridField
+        AreaIndex = 8
+        DataBinding.FieldName = 'PARCELA'
+        Visible = True
+        UniqueName = 'Parcela'
+      end
+      object ProdAgua: TcxDBPivotGridField
+        AreaIndex = 9
+        DataBinding.FieldName = 'ProdAgua'
+        Visible = True
+        UniqueName = 'ProdAgua'
+      end
+      object RENDIMIENTO: TcxDBPivotGridField
+        AreaIndex = 10
+        DataBinding.FieldName = 'RENDIMIENTO'
+        Visible = True
+        UniqueName = 'Rendimiento'
+      end
+      object SIEMBRA: TcxDBPivotGridField
+        AreaIndex = 11
+        DataBinding.FieldName = 'SIEMBRA'
+        Visible = True
+        UniqueName = 'Siembra'
+      end
+      object TIPO: TcxDBPivotGridField
+        AreaIndex = 12
+        DataBinding.FieldName = 'TIPO'
+        Visible = True
+        UniqueName = 'Tipo'
+      end
+      object UBICACION: TcxDBPivotGridField
+        AreaIndex = 13
+        DataBinding.FieldName = 'UBICACION'
+        Visible = True
+        UniqueName = 'Ubicaci'#243'n'
+      end
+      object USUARIO: TcxDBPivotGridField
+        AreaIndex = 14
+        DataBinding.FieldName = 'USUARIO'
+        Visible = True
+        UniqueName = 'Usuario'
+      end
+      object VARIEDAD: TcxDBPivotGridField
+        AreaIndex = 15
+        DataBinding.FieldName = 'VARIEDAD'
+        Visible = True
+        UniqueName = 'Variedad'
+      end
+      object VOLUMEN: TcxDBPivotGridField
+        Area = faData
+        AreaIndex = 0
+        DataBinding.FieldName = 'VOLUMEN'
+        Visible = True
+        UniqueName = 'Volumen'
+      end
+      object NO_FECHA: TcxDBPivotGridField
+        Area = faRow
+        AreaIndex = 1
+        IsCaptionAssigned = True
+        Caption = 'Semana'
+        DataBinding.FieldName = 'FECHA'
+        GroupInterval = giDateWeekOfYear
+        Visible = True
+        UniqueName = 'Semana'
+      end
+      object ANIO: TcxDBPivotGridField
+        Area = faRow
+        AreaIndex = 0
+        IsCaptionAssigned = True
+        Caption = 'A'#241'o'
+        DataBinding.FieldName = 'FECHA'
+        GroupInterval = giDateYear
+        Visible = True
+        UniqueName = 'A'#241'o'
+      end
+    end
+    object cxGrid1: TcxGrid
+      Left = 0
+      Top = 123
+      Width = 678
+      Height = 200
+      Align = alBottom
+      TabOrder = 1
+      object cxGrid1ChartView1: TcxGridChartView
         DiagramLine.Active = True
-        DiagramLine.AxisCategory.GridLines = False
-        DiagramLine.AxisCategory.TickMarkLabels = False
-        object cxGrid1DBChartView1Series0: TcxGridDBChartSeries
-          DataBinding.FieldName = 'BATT'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series1: TcxGridDBChartSeries
-          DataBinding.FieldName = 'IRFL'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series2: TcxGridDBChartSeries
-          DataBinding.FieldName = 'GLBR'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series3: TcxGridDBChartSeries
-          DataBinding.FieldName = 'LFWT'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series4: TcxGridDBChartSeries
-          DataBinding.FieldName = 'ORFL'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series5: TcxGridDBChartSeries
-          DataBinding.FieldName = 'PREC'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series6: TcxGridDBChartSeries
-          DataBinding.FieldName = 'PCM3'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series7: TcxGridDBChartSeries
-          DataBinding.FieldName = 'RHUM'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series8: TcxGridDBChartSeries
-          DataBinding.FieldName = 'SOLC'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series9: TcxGridDBChartSeries
-          DataBinding.FieldName = 'TMAX'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series10: TcxGridDBChartSeries
-          DataBinding.FieldName = 'TMIN'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series11: TcxGridDBChartSeries
-          DataBinding.FieldName = 'TEMP'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series12: TcxGridDBChartSeries
-          DataBinding.FieldName = 'VMAX'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series13: TcxGridDBChartSeries
-          DataBinding.FieldName = 'WDIR'
-          Visible = False
-        end
-        object cxGrid1DBChartView1Series14: TcxGridDBChartSeries
-          DataBinding.FieldName = 'WSPD'
-          Visible = False
-        end
       end
       object cxGrid1Level1: TcxGridLevel
-        GridView = cxGrid1DBTableView1
+        GridView = cxGrid1ChartView1
       end
     end
   end
@@ -223,7 +191,7 @@ object frmRiegos: TfrmRiegos
     Style = rs2013
     ColorSchemeName = 'White'
     Contexts = <>
-    TabOrder = 5
+    TabOrder = 1
     TabStop = False
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
@@ -253,11 +221,7 @@ object frmRiegos: TfrmRiegos
     UseSystemFont = True
     Left = 312
     Top = 168
-    DockControlHeights = (
-      0
-      0
-      0
-      0)
+    PixelsPerInch = 96
     object dxBarManager1Bar1: TdxBar
       Caption = 'Riegos'
       CaptionButtons = <>
@@ -287,19 +251,20 @@ object frmRiegos: TfrmRiegos
       Category = 0
       Hint = 'Consultar'
       Visible = ivAlways
-      LargeImageIndex = 0
       OnClick = dxBarLargeButton1Click
+      LargeImageIndex = 0
     end
     object dxBarLargeButton2: TdxBarLargeButton
       Caption = 'Exportar a excel'
       Category = 0
       Hint = 'Exportar a excel'
       Visible = ivAlways
-      LargeImageIndex = 1
       OnClick = dxBarLargeButton2Click
+      LargeImageIndex = 1
     end
   end
   object ImageList16: TcxImageList
+    SourceDPI = 96
     FormatVersion = 1
     DesignInfo = 15204624
     ImageInfo = <
@@ -379,6 +344,7 @@ object frmRiegos: TfrmRiegos
       end>
   end
   object ImageList32: TcxImageList
+    SourceDPI = 96
     Height = 32
     Width = 32
     FormatVersion = 1
@@ -650,5 +616,16 @@ object frmRiegos: TfrmRiegos
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
       end>
+  end
+  object cxPivotGridChartConnection1: TcxPivotGridChartConnection
+    GridChartView = cxGrid1ChartView1
+    PivotGrid = cxDBPivotGrid1
+    Left = 312
+    Top = 288
+  end
+  object sdExcel: TSaveDialog
+    Filter = 'Microsoft excel 97/2000/XP (.xls)|*.xls'
+    Left = 352
+    Top = 16
   end
 end

@@ -153,9 +153,8 @@ type
     cdsSueloPMP: TFloatField;
     cdsParcelaHA: TFloatField;
     cdsSiembraEFICIENCIA: TFloatField;
-    cdsConsultaUsuarioUSUSARIO: TStringField;
+    cdsConsultaUsuarioUSUARIO: TStringField;
     cdsConsultaUsuarioPARCELA: TStringField;
-    cdsConsultaUsuarioESTACION: TStringField;
     cdsConsultaUsuarioSIEMBRA: TStringField;
     cdsConsultaUsuarioFECHA: TSQLTimeStampField;
     cdsConsultaUsuarioCULTIVO: TStringField;

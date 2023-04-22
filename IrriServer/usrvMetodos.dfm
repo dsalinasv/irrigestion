@@ -7,11 +7,35 @@ object smModulo: TsmModulo
     DriverName = 'Firebird'
     LoginPrompt = False
     Params.Strings = (
+      'DriverUnit=Data.DBXFirebird'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DbxCommonDriver250.' +
+        'bpl'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXDynalinkDriverLoader,Borla' +
+        'nd.Data.DbxCommonDriver,Version=24.0.0.0,Culture=neutral,PublicK' +
+        'eyToken=91d62ebb5b0d1b1b'
+      
+        'MetaDataPackageLoader=TDBXFirebirdMetaDataCommandFactory,DbxFire' +
+        'birdDriver250.bpl'
+      
+        'MetaDataAssemblyLoader=Borland.Data.TDBXFirebirdMetaDataCommandF' +
+        'actory,Borland.Data.DbxFirebirdDriver,Version=24.0.0.0,Culture=n' +
+        'eutral,PublicKeyToken=91d62ebb5b0d1b1b'
+      'GetDriverFunc=getSQLDriverINTERBASE'
+      'LibraryName=dbxfb.dll'
+      'LibraryNameOsx=libsqlfb.dylib'
+      'VendorLib=fbclient.dll'
+      'VendorLibWin64=fbclient.dll'
+      'VendorLibOsx=/Library/Frameworks/Firebird.framework/Firebird'
+      'Role=RoleName'
+      'MaxBlobSize=-1'
+      'TrimChar=False'
       'DriverName=Firebird'
       'Database=C:\AppServer\PAPA.FDB'
       'RoleName=RoleName'
       'User_Name=sysdba'
-      'Password=masterkey'
+      'Password=auofdsbcs'
       'ServerCharSet='
       'SQLDialect=3'
       'ErrorResourceFile='
@@ -1204,7 +1228,6 @@ object smModulo: TsmModulo
       'u.nombre as ususario,'
       'p.nombre as parcela,'
       'p.ubicacion,'
-      'e.nombre as estacion,'
       's.nombre as siembra,'
       's.fecha,'
       's.rendimiento,'
@@ -1220,14 +1243,13 @@ object smModulo: TsmModulo
       'left join VARIEDADES v on v.ID_VARIEDAD = s.ID_VARIEDAD'
       'left join TIPOS t on t.ID_TIPO = v.ID_TIPO'
       'left join PARCELAS p on p.ID_PARCELA = s.ID_PARCELA'
-      'left join ESTACIONES e on e.ID_ESTACION = p.ID_ESTACION'
       'left join USUARIOS u on u.ID_USUARIO = p.ID_USUARIO')
     SQLConnection = cntConexion
     Left = 56
     Top = 192
     object qryConsultaGeneralUSUSARIO: TStringField
       DisplayLabel = 'Usuario'
-      FieldName = 'USUSARIO'
+      FieldName = 'USUARIO'
       Size = 30
     end
     object qryConsultaGeneralPARCELA: TStringField
@@ -1238,11 +1260,6 @@ object smModulo: TsmModulo
     object qryConsultaGeneralUBICACION: TStringField
       DisplayLabel = 'Ubicaci'#243'n'
       FieldName = 'UBICACION'
-      Size = 50
-    end
-    object qryConsultaGeneralESTACION: TStringField
-      DisplayLabel = 'Estacion'
-      FieldName = 'ESTACION'
       Size = 50
     end
     object qryConsultaGeneralSIEMBRA: TStringField
@@ -1308,16 +1325,15 @@ object smModulo: TsmModulo
     MaxBlobSize = 1
     Params = <
       item
-        DataType = ftString
+        DataType = ftUnknown
         Name = 'ID_USUARIO'
         ParamType = ptInput
       end>
     SQL.Strings = (
       'select'
-      'u.nombre as ususario,'
+      'u.nombre as usuario,'
       'p.nombre as parcela,'
       'p.ubicacion,'
-      'e.nombre as estacion,'
       's.nombre as siembra,'
       's.fecha,'
       's.rendimiento,'
@@ -1333,15 +1349,14 @@ object smModulo: TsmModulo
       'left join VARIEDADES v on v.ID_VARIEDAD = s.ID_VARIEDAD'
       'left join TIPOS t on t.ID_TIPO = v.ID_TIPO'
       'left join PARCELAS p on p.ID_PARCELA = s.ID_PARCELA'
-      'left join ESTACIONES e on e.ID_ESTACION = p.ID_ESTACION'
       'left join USUARIOS u on u.ID_USUARIO = p.ID_USUARIO'
       'where p.ID_USUARIO = :ID_USUARIO')
     SQLConnection = cntConexion
     Left = 56
     Top = 248
-    object qryConsultaUsuarioUSUSARIO: TStringField
+    object qryConsultaUsuarioUSUARIO: TStringField
       DisplayLabel = 'Usuario'
-      FieldName = 'USUSARIO'
+      FieldName = 'USUARIO'
       Size = 30
     end
     object qryConsultaUsuarioPARCELA: TStringField
@@ -1352,11 +1367,6 @@ object smModulo: TsmModulo
     object qryConsultaUsuarioUBICACION: TStringField
       DisplayLabel = 'Ubicaci'#243'n'
       FieldName = 'UBICACION'
-      Size = 50
-    end
-    object qryConsultaUsuarioESTACION: TStringField
-      DisplayLabel = 'Estacion'
-      FieldName = 'ESTACION'
       Size = 50
     end
     object qryConsultaUsuarioSIEMBRA: TStringField

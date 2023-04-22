@@ -903,9 +903,9 @@ object dmData: TdmData
     OnNewRecord = cdsNewRecord
     Left = 400
     Top = 192
-    object cdsConsultaUsuarioUSUSARIO: TStringField
+    object cdsConsultaUsuarioUSUARIO: TStringField
       DisplayLabel = 'Usuario'
-      FieldName = 'USUSARIO'
+      FieldName = 'USUARIO'
       Size = 30
     end
     object cdsConsultaUsuarioPARCELA: TStringField
@@ -916,11 +916,6 @@ object dmData: TdmData
     object cdsConsultaUsuarioUBICACION: TStringField
       DisplayLabel = 'Ubicaci'#243'n'
       FieldName = 'UBICACION'
-      Size = 50
-    end
-    object cdsConsultaUsuarioESTACION: TStringField
-      DisplayLabel = 'Estacion'
-      FieldName = 'ESTACION'
       Size = 50
     end
     object cdsConsultaUsuarioSIEMBRA: TStringField

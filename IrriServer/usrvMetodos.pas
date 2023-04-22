@@ -229,7 +229,6 @@ type
     qrySiembraEFICIENCIA: TFloatField;
     qryConsultaGeneralUSUSARIO: TStringField;
     qryConsultaGeneralPARCELA: TStringField;
-    qryConsultaGeneralESTACION: TStringField;
     qryConsultaGeneralSIEMBRA: TStringField;
     qryConsultaGeneralFECHA: TSQLTimeStampField;
     qryConsultaGeneralCULTIVO: TStringField;
@@ -241,9 +240,8 @@ type
     qryConsultaGeneralAVANCE: TFloatField;
     qryConsultaGeneralGASTO: TFloatField;
     qryConsultaGeneralLAMINA: TFloatField;
-    qryConsultaUsuarioUSUSARIO: TStringField;
+    qryConsultaUsuarioUSUARIO: TStringField;
     qryConsultaUsuarioPARCELA: TStringField;
-    qryConsultaUsuarioESTACION: TStringField;
     qryConsultaUsuarioSIEMBRA: TStringField;
     qryConsultaUsuarioFECHA: TSQLTimeStampField;
     qryConsultaUsuarioCULTIVO: TStringField;
